@@ -91,6 +91,14 @@
             transform: none;
         }
         
+        .btn-success {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
+        }
+        
         .progress {
             width: 100%;
             height: 6px;
@@ -228,12 +236,96 @@
             font-weight: 500;
             color: #495057;
         }
+        
+        .results-section {
+            margin-top: 40px;
+            text-align: left;
+        }
+        
+        .download-section {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .download-section h3 {
+            color: #155724;
+            margin-top: 0;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>📄 Procesador de Facturas</h1>
         
+        {% if error %}
+        <div class="status error" style="display: block;">
+            ❌ {{ error }}
+        </div>
+        {% endif %}
+        
+        {% if success %}
+        <div class="download-section">
+            <h3>✅ Procesamiento Completado</h3>
+            <p>Se procesaron {{ results|length }} registros de facturas.</p>
+            <a href="/download_excel/{{ excel_file_id }}" class="btn btn-success">
+                📥 Descargar Archivo Excel
+            </a>
+            <button class="btn" onclick="location.reload()">
+                🔄 Procesar Nuevas Facturas
+            </button>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">{{ results|length }}</div>
+                <div class="stat-label">Registros Procesados</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">{{ results|selectattr('Tipo', 'equalto', 'GRAVADO')|list|length }}</div>
+                <div class="stat-label">IVA Gravado</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">{{ results|selectattr('Tipo', 'equalto', 'EXENTO')|list|length }}</div>
+                <div class="stat-label">IVA Exento</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">{{ results|selectattr('Tipo', 'equalto', 'EXCLUIDO')|list|length }}</div>
+                <div class="stat-label">IVA Excluido</div>
+            </div>
+        </div>
+        {% endif %}
+        
+        {% if not success %}
         <div class="info">
             <h3>📋 Información del Procesamiento</h3>
             <ul>
@@ -249,17 +341,15 @@
             <h4>📊 Estructura de Columnas del Excel:</h4>
             <div class="column-list">
                 <div class="column-item">Obserad direccion de el fecha de acturacion</div>
-                <div class="column-item">Documento</div>
-                <div class="column-item">Documento Ref.</div>
+                <div class="column-item">Document.cumento R</div>
                 <div class="column-item">Nit</div>
                 <div class="column-item">IVA</div>
                 <div class="column-item">Tipo (GRAVADO/EXENTO/EXCLUIDO)</div>
                 <div class="column-item">Valor</div>
                 <div class="column-item">Base</div>
-                <div class="column-item">Centro de Costo</div>
-                <div class="column-item">Trans. Ext</div>
+                <div class="column-item">ntro de Co Trans. Ext</div>
                 <div class="column-item">Plazo</div>
-                <div class="column-item">Docto Electrónico</div>
+                <div class="column-item">to Electrón</div>
             </div>
         </div>
         
@@ -270,7 +360,7 @@
                 <div class="file-counter" id="fileCounter" style="display: none;">
                     Archivos seleccionados: <span id="fileCount">0</span> / 100
                 </div>
-                <input type="file" name="zip_files" id="fileInput" class="file-input" accept=".zip" multiple required>
+                <input type="file" name="zip_files" id="fileInput" class="file-input" accept=".zip" multiple>
                 <button type="button" class="btn" onclick="document.getElementById('fileInput').click()">
                     Seleccionar Archivos ZIP
                 </button>
@@ -288,6 +378,68 @@
                 🔄 Procesar Facturas
             </button>
         </form>
+        {% endif %}
+        
+        {% if results and success %}
+        <div class="results-section">
+            <h2>📊 Vista Previa de Datos</h2>
+            <p><strong>Total de registros:</strong> {{ results|length }}</p>
+            
+            <div style="overflow-x: auto; margin: 20px 0;">
+                <table border="1" cellpadding="8" style="border-collapse:collapse;width:100%;font-size:0.85em;min-width:1200px;">
+                    <tr style="background:#f0f0f0;font-weight:bold;text-align:center;">
+                        <td>Obserad direccion de el fecha de acturacion</td>
+                        <td>Document.cumento R</td>
+                        <td>Nit</td>
+                        <td>IVA</td>
+                        <td>Tipo</td>
+                        <td>Valor</td>
+                        <td>Base</td>
+                        <td>ntro de Co Trans. Ext</td>
+                        <td>Plazo</td>
+                        <td>to Electrón</td>
+                    </tr>
+                    {% for row in results[:10] %}
+                    <tr>
+                        <td style="max-width:200px;word-wrap:break-word;">{{ row['Obserad direccion de el fecha de acturacion'] }}</td>
+                        <td>{{ row['Document.cumento R'] }}</td>
+                        <td>{{ row['Nit'] }}</td>
+                        <td>{{ row['IVA'] }}</td>
+                        <td>{{ row['Tipo'] }}</td>
+                        <td style="text-align:right;">{{ '%.2f'|format(row['Valor']) }}</td>
+                        <td style="text-align:right;">{{ '%.2f'|format(row['Base']) }}</td>
+                        <td>{{ row['ntro de Co Trans. Ext'] }}</td>
+                        <td>{{ row['Plazo'] }}</td>
+                        <td style="max-width:150px;word-wrap:break-word;font-size:0.8em;">{{ row['to Electrón'] }}</td>
+                    </tr>
+                    {% endfor %}
+                    {% if results|length > 10 %}
+                    <tr>
+                        <td colspan="10" style="text-align:center;background:#f8f9fa;color:#666;">
+                            ... y {{ results|length - 10 }} registros más
+                        </td>
+                    </tr>
+                    {% endif %}
+                </table>
+            </div>
+            
+            <div style="margin-top: 20px; padding: 15px; background-color: #e7f3ff; border-radius: 8px;">
+                <h4>📋 Información de las Columnas:</h4>
+                <ul style="margin: 5px 0; padding-left: 20px;">
+                    <li><strong>Obserad direccion de el fecha de acturacion:</strong> Dirección del cliente y fecha de facturación</li>
+                    <li><strong>Document.cumento R:</strong> Número de documento/factura</li>
+                    <li><strong>Nit:</strong> Número de Identificación Tributaria del proveedor</li>
+                    <li><strong>IVA:</strong> Porcentaje de IVA aplicado</li>
+                    <li><strong>Tipo:</strong> Clasificación del impuesto (GRAVADO/EXENTO/EXCLUIDO)</li>
+                    <li><strong>Valor:</strong> Monto del impuesto</li>
+                    <li><strong>Base:</strong> Base gravable del impuesto</li>
+                    <li><strong>ntro de Co Trans. Ext:</strong> Centro de costo y transacción externa</li>
+                    <li><strong>Plazo:</strong> Fecha de vencimiento del pago</li>
+                    <li><strong>to Electrón:</strong> UUID del documento electrónico</li>
+                </ul>
+            </div>
+        </div>
+        {% endif %}
     </div>
 
     <script>
@@ -420,6 +572,11 @@
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
+            if (selectedFiles.length === 0) {
+                showStatus('❌ No hay archivos seleccionados', 'error');
+                return;
+            }
+            
             const formData = new FormData();
             selectedFiles.forEach(file => {
                 formData.append('zip_files', file);
@@ -433,46 +590,71 @@
                 showStatus('Iniciando procesamiento...', 'success');
                 showProgress(30);
                 
+                console.log('Enviando', selectedFiles.length, 'archivos al servidor...');
+                
                 const response = await fetch('/', {
                     method: 'POST',
-                    body: formData
+                    body: formData,
+                    // Agregar timeout y headers para mejor manejo
+                    signal: AbortSignal.timeout(300000), // 5 minutos timeout
                 });
                 
                 showProgress(80);
+                console.log('Respuesta recibida:', response.status, response.statusText);
                 
                 if (response.ok) {
-                    // Descargar el archivo Excel
-                    const blob = await response.blob();
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'facturas_procesadas.xlsx';
-                    document.body.appendChild(a);
-                    a.click();
-                    window.URL.revokeObjectURL(url);
-                    document.body.removeChild(a);
+                    const htmlContent = await response.text();
+                    console.log('Contenido HTML recibido, longitud:', htmlContent.length);
                     
-                    showStatus('✅ Procesamiento completado. Archivo Excel descargado.', 'success');
-                    showProgress(100);
-                    
-                    // Reset form
-                    selectedFiles = [];
-                    updateFileList();
-                    updateSubmitButton();
-                    updateFileCounter();
-                    submitBtn.textContent = '🔄 Procesar Facturas';
-                    progress.style.display = 'none';
+                    // Verificar si el contenido es HTML válido
+                    if (htmlContent.includes('<!DOCTYPE html>') || htmlContent.includes('<html')) {
+                        document.querySelector('.container').innerHTML = htmlContent;
+                        showStatus('✅ Procesamiento completado.', 'success');
+                        showProgress(100);
+                        
+                        // Reset form
+                        selectedFiles = [];
+                        updateFileList();
+                        updateSubmitButton();
+                        updateFileCounter();
+                        submitBtn.textContent = '🔄 Procesar Facturas';
+                        progress.style.display = 'none';
+                    } else {
+                        // Si no es HTML, puede ser un error JSON
+                        try {
+                            const errorData = JSON.parse(htmlContent);
+                            showStatus('❌ Error del servidor: ' + (errorData.error || 'Error desconocido'), 'error');
+                        } catch (parseError) {
+                            showStatus('❌ Respuesta inesperada del servidor', 'error');
+                            console.error('Respuesta inesperada:', htmlContent.substring(0, 200));
+                        }
+                    }
                 } else {
-                    const errorData = await response.json();
-                    showStatus('❌ Error: ' + (errorData.error || 'Error en el procesamiento'), 'error');
+                    // Intentar leer el error como JSON
+                    try {
+                        const errorData = await response.json();
+                        showStatus('❌ Error del servidor: ' + (errorData.error || `Error ${response.status}`), 'error');
+                    } catch (jsonError) {
+                        const errorText = await response.text();
+                        showStatus('❌ Error del servidor: ' + (errorText || `Error ${response.status}`), 'error');
+                    }
                 }
             } catch (error) {
-                showStatus('❌ Error de conexión: ' + error.message, 'error');
+                console.error('Error completo:', error);
+                
+                if (error.name === 'AbortError') {
+                    showStatus('❌ Error: Tiempo de espera agotado. Los archivos pueden ser muy grandes.', 'error');
+                } else if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                    showStatus('❌ Error de conexión: No se puede conectar al servidor. Verifica que la aplicación esté ejecutándose.', 'error');
+                } else {
+                    showStatus('❌ Error de conexión: ' + error.message, 'error');
+                }
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = '🔄 Procesar Facturas';
+                progress.style.display = 'none';
             }
         });
     </script>
 </body>
-</html> 
+</html>

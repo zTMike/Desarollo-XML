@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Conexión</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 Prueba de Conexión al Servidor</h1>
+    
+    <div id="status"></div>
+    
+    <button onclick="testConnection()">Probar Conexión</button>
+    <button onclick="testMainPage()">Probar Página Principal</button>
+    
+    <script>
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('status');
+            statusDiv.innerHTML = `<div class="status ${type}">${message}</div>`;
+        }
+        
+        async function testConnection() {
+            try {
+                showStatus('🔄 Probando conexión...', '');
+                
+                const response = await fetch('/test', {
+                    method: 'GET',
+                    signal: AbortSignal.timeout(10000) // 10 segundos timeout
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    showStatus(`✅ Conexión exitosa: ${data.message}`, 'success');
+                } else {
+                    showStatus(`❌ Error del servidor: ${response.status} ${response.statusText}`, 'error');
+                }
+            } catch (error) {
+                console.error('Error de conexión:', error);
+                showStatus(`❌ Error de conexión: ${error.message}`, 'error');
+            }
+        }
+        
+        async function testMainPage() {
+            try {
+                showStatus('🔄 Probando página principal...', '');
+                
+                const response = await fetch('/', {
+                    method: 'GET',
+                    signal: AbortSignal.timeout(10000) // 10 segundos timeout
+                });
+                
+                if (response.ok) {
+                    const html = await response.text();
+                    if (html.includes('Procesador de Facturas')) {
+                        showStatus('✅ Página principal cargada correctamente', 'success');
+                    } else {
+                        showStatus('⚠️ Página cargada pero contenido inesperado', 'error');
+                    }
+                } else {
+                    showStatus(`❌ Error del servidor: ${response.status} ${response.statusText}`, 'error');
+                }
+            } catch (error) {
+                console.error('Error de conexión:', error);
+                showStatus(`❌ Error de conexión: ${error.message}`, 'error');
+            }
+        }
+        
+        // Probar conexión automáticamente al cargar la página
+        window.onload = function() {
+            testConnection();
+        };
+    </script>
+</body>
+</html>
