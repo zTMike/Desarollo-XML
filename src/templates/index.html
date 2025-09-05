@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procesador de Facturas XML v2.0</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-file-invoice"></i> Procesador de Facturas XML</h1>
+            <p class="version">Versión 2.0.0</p>
+        </header>
+
+        <div id="error-container" class="alert alert-error" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span id="error-message"></span>
+        </div>
+
+        <div id="success-container" class="alert alert-success" style="display: none;">
+            <i class="fas fa-check-circle"></i>
+            <span id="success-message"></span>
+        </div>
+
+        <div id="upload-section">
+            <div class="info-card">
+                <h3><i class="fas fa-info-circle"></i> Información del Procesamiento</h3>
+                <ul>
+                    <li><strong>Archivos:</strong> Selecciona múltiples archivos ZIP que contengan facturas XML (sin límite)</li>
+                    <li><strong>Estructura:</strong> Cada IVA de cada factura será una fila separada</li>
+                    <li><strong>Agrupación:</strong> IVAs del mismo porcentaje se agrupan en una fila</li>
+                    <li><strong>Clasificación:</strong> Identifica si el impuesto es GRAVADO, EXENTO o EXCLUIDO</li>
+                    <li><strong>Resultado:</strong> Archivo Excel con la estructura específica requerida</li>
+                </ul>
+            </div>
+
+            <div class="structure-preview">
+                <h4><i class="fas fa-table"></i> Estructura de Columnas del Excel:</h4>
+                <div class="column-grid">
+                    <div class="column-item">Cuenta</div>
+                    <div class="column-item">Comprobante</div>
+                    <div class="column-item">Fecha</div>
+                    <div class="column-item">Documento</div>
+                    <div class="column-item">Documento Ref.</div>
+                    <div class="column-item">Nit</div>
+                    <div class="column-item">Detalle</div>
+                    <div class="column-item">Tipo</div>
+                    <div class="column-item">Valor</div>
+                    <div class="column-item">Base</div>
+                    <div class="column-item">Centro de Costo</div>
+                    <div class="column-item">Trans. Ext</div>
+                    <div class="column-item">Plazo</div>
+                    <div class="column-item">Docto Electrónico</div>
+                </div>
+            </div>
+
+            <form id="uploadForm" enctype="multipart/form-data">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <div class="upload-text">
+                        Arrastra múltiples archivos ZIP aquí o haz clic para seleccionar
+                    </div>
+                    <div class="file-counter" id="fileCounter" style="display: none;">
+                        Archivos seleccionados: <span id="fileCount">0</span>
+                    </div>
+                    <input type="file" name="zip_files" id="fileInput" class="file-input" accept=".zip" multiple>
+                    <button type="button" class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                        <i class="fas fa-folder-open"></i> Seleccionar Archivos ZIP
+                    </button>
+                </div>
+                
+                <div class="file-list" id="fileList"></div>
+                
+                <div class="progress-container" id="progressContainer" style="display: none;">
+                    <div class="progress">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">Procesando...</div>
+                </div>
+                
+                <button type="submit" class="btn btn-success" id="submitBtn" disabled>
+                    <i class="fas fa-cogs"></i> Procesar Facturas
+                </button>
+            </form>
+        </div>
+
+        <div id="results-section" style="display: none;">
+            <div class="download-section">
+                <h3><i class="fas fa-download"></i> Procesamiento Completado</h3>
+                <div class="stats-grid" id="statsGrid"></div>
+                <div class="download-buttons">
+                    <a href="#" class="btn btn-success" id="downloadBtn">
+                        <i class="fas fa-file-excel"></i> Descargar Archivo Excel
+                    </a>
+                    <button class="btn btn-secondary" onclick="resetForm()">
+                        <i class="fas fa-redo"></i> Procesar Nuevas Facturas
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
