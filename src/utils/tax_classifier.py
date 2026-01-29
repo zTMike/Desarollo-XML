@@ -117,6 +117,7 @@ class TaxClassifier:
         
         Aplica reglas específicas para IVA considerando códigos de impuesto,
         porcentajes y montos para determinar la clasificación fiscal exacta.
+        Mejora la discriminación entre EXENTO y EXCLUIDO.
         
         Args:
             percent (str): Porcentaje del IVA
@@ -129,15 +130,17 @@ class TaxClassifier:
             {
                 'classification': 'GRAVADO|EXENTO|EXCLUIDO|INDEFINIDO',
                 'description': 'Descripción detallada del estado fiscal',
-                'reason': 'Razón de la clasificación'
+                'reason': 'Razón de la clasificación',
+                'subtype': 'Subtipo específico (opcional)'
             }
             
         Ejemplo de uso:
-            result = classifier.classify_iva_specifically('12.00', '120.00', '1000.00')
+            result = classifier.classify_iva_specifically('0.00', '0.00', '1000.00')
             # result = {
-            #     'classification': 'GRAVADO',
-            #     'description': 'IVA Gravado 12%',
-            #     'reason': 'Monto de impuesto aplicado'
+            #     'classification': 'EXENTO',
+            #     'description': 'IVA Exento - Productos de Primera Necesidad',
+            #     'reason': 'Productos exentos por ley',
+            #     'subtype': 'PRIMERA_NECESIDAD'
             # }
         """
         try:
@@ -151,72 +154,126 @@ class TaxClassifier:
                 return {
                     'classification': 'INDEFINIDO',
                     'description': 'IVA con datos negativos',
-                    'reason': 'Valores negativos no permitidos'
+                    'reason': 'Valores negativos no permitidos',
+                    'subtype': 'ERROR_DATOS'
                 }
             
-            # Reglas específicas para IVA
+            # Reglas específicas para IVA con mejor discriminación
             if tax_amount_float > 0:
-                # IVA GRAVADO - Hay monto de impuesto
+                # IVA GRAVADO - Hay monto de impuesto aplicado
                 if percent_float == 12.0:
                     return {
                         'classification': 'GRAVADO',
-                        'description': 'IVA Gravado 12%',
-                        'reason': 'IVA estándar con monto aplicado'
+                        'description': 'IVA Gravado 12% - Tasa General',
+                        'reason': 'IVA estándar con monto aplicado',
+                        'subtype': 'TASA_GENERAL'
                     }
                 elif percent_float == 14.0:
                     return {
                         'classification': 'GRAVADO',
-                        'description': 'IVA Gravado 14%',
-                        'reason': 'IVA con tasa especial aplicada'
+                        'description': 'IVA Gravado 14% - Tasa Especial',
+                        'reason': 'IVA con tasa especial aplicada',
+                        'subtype': 'TASA_ESPECIAL'
+                    }
+                elif percent_float == 15.0:
+                    return {
+                        'classification': 'GRAVADO',
+                        'description': 'IVA Gravado 15% - Tasa Adicional',
+                        'reason': 'IVA con tasa adicional aplicada',
+                        'subtype': 'TASA_ADICIONAL'
                     }
                 elif percent_float == 0.0:
                     return {
                         'classification': 'GRAVADO',
-                        'description': 'IVA Gravado 0%',
-                        'reason': 'IVA con tasa 0% pero con monto aplicado'
+                        'description': 'IVA Gravado 0% - Con Monto',
+                        'reason': 'IVA con tasa 0% pero con monto aplicado (inconsistencia)',
+                        'subtype': 'INCONSISTENTE'
                     }
                 else:
                     return {
                         'classification': 'GRAVADO',
-                        'description': f'IVA Gravado {percent_float}%',
-                        'reason': f'IVA con tasa {percent_float}% aplicada'
+                        'description': f'IVA Gravado {percent_float}% - Tasa No Estándar',
+                        'reason': f'IVA con tasa {percent_float}% aplicada',
+                        'subtype': 'TASA_NO_ESTANDAR'
                     }
                     
             elif taxable_amount_float > 0:
-                # IVA EXENTO - Hay base imponible pero no hay impuesto
+                # IVA EXENTO - Hay base imponible pero NO hay impuesto
                 if percent_float == 0.0:
                     return {
                         'classification': 'EXENTO',
-                        'description': 'IVA Exento 0%',
-                        'reason': 'Productos exentos de IVA'
+                        'description': 'IVA Exento 0% - Productos de Primera Necesidad',
+                        'reason': 'Productos exentos de IVA por ley',
+                        'subtype': 'PRIMERA_NECESIDAD'
+                    }
+                elif percent_float == 12.0:
+                    return {
+                        'classification': 'EXENTO',
+                        'description': 'IVA Exento 12% - Exención Específica',
+                        'reason': 'Producto con tasa 12% pero exento por normativa especial',
+                        'subtype': 'EXENCION_ESPECIAL'
+                    }
+                elif percent_float == 14.0:
+                    return {
+                        'classification': 'EXENTO',
+                        'description': 'IVA Exento 14% - Exención Especial',
+                        'reason': 'Producto con tasa 14% pero exento por normativa especial',
+                        'subtype': 'EXENCION_ESPECIAL'
                     }
                 elif percent_float > 0:
                     return {
                         'classification': 'EXENTO',
-                        'description': f'IVA Exento {percent_float}%',
-                        'reason': 'Base imponible sin monto de impuesto'
+                        'description': f'IVA Exento {percent_float}% - Exención por Normativa',
+                        'reason': 'Base imponible presente pero exento por normativa',
+                        'subtype': 'EXENCION_NORMATIVA'
                     }
                 else:
                     return {
                         'classification': 'EXENTO',
-                        'description': 'IVA Exento',
-                        'reason': 'Base imponible sin impuesto aplicado'
+                        'description': 'IVA Exento - Sin Porcentaje Específico',
+                        'reason': 'Base imponible sin impuesto aplicado',
+                        'subtype': 'EXENCION_GENERAL'
                     }
                     
             elif taxable_amount_float == 0 and tax_amount_float == 0:
-                # IVA EXCLUIDO - No hay base imponible ni impuesto
-                return {
-                    'classification': 'EXCLUIDO',
-                    'description': 'IVA Excluido',
-                    'reason': 'Productos fuera del alcance del IVA'
-                }
+                # IVA EXCLUIDO - NO hay base imponible NI impuesto
+                if percent_float == 12.0:
+                    return {
+                        'classification': 'EXCLUIDO',
+                        'description': 'IVA Excluido 12% - Exportaciones',
+                        'reason': 'Exportaciones fuera del alcance del IVA',
+                        'subtype': 'EXPORTACIONES'
+                    }
+                elif percent_float == 14.0:
+                    return {
+                        'classification': 'EXCLUIDO',
+                        'description': 'IVA Excluido 14% - Servicios Excluidos',
+                        'reason': 'Servicios específicos fuera del alcance del IVA',
+                        'subtype': 'SERVICIOS_EXCLUIDOS'
+                    }
+                elif percent_float > 0:
+                    return {
+                        'classification': 'EXCLUIDO',
+                        'description': f'IVA Excluido {percent_float}% - Fuera del Alcance',
+                        'reason': 'Producto/servicio fuera del alcance del IVA',
+                        'subtype': 'FUERA_ALCANCE'
+                    }
+                else:
+                    # Caso general: porcentaje 0.0, base 0.0, monto 0.0
+                    return {
+                        'classification': 'EXCLUIDO',
+                        'description': 'IVA Excluido - Sin Base Imponible',
+                        'reason': 'Producto/servicio excluido del IVA',
+                        'subtype': 'EXCLUSION_GENERAL'
+                    }
                 
             else:
-                # Caso especial
+                # Caso especial o datos inconsistentes
                 return {
                     'classification': 'INDEFINIDO',
-                    'description': 'IVA Indefinido',
-                    'reason': 'Datos inconsistentes o faltantes'
+                    'description': 'IVA Indefinido - Datos Inconsistentes',
+                    'reason': 'No se puede determinar la clasificación fiscal',
+                    'subtype': 'DATOS_INCONSISTENTES'
                 }
                 
         except (ValueError, TypeError) as e:
@@ -224,7 +281,8 @@ class TaxClassifier:
             return {
                 'classification': 'INDEFINIDO',
                 'description': 'IVA con error de datos',
-                'reason': f'Error en procesamiento: {str(e)}'
+                'reason': f'Error en procesamiento: {str(e)}',
+                'subtype': 'ERROR_PROCESAMIENTO'
             }
 
     def get_tax_description(self, tax_scheme_id: str, tax_scheme_name: str, percent: str, tax_amount: str = '0', taxable_amount: str = '0') -> str:
@@ -269,15 +327,17 @@ class TaxClassifier:
             classification = ""
             if tax_amount and taxable_amount:
                 if tax_scheme_name.upper() == 'IVA':
-                    # Usar clasificación específica para IVA
+                    # Usar clasificación específica para IVA con descripción mejorada
                     iva_result = self.classify_iva_specifically(percent, tax_amount, taxable_amount, tax_scheme_id)
-                    classification = f" - {iva_result['classification']}"
+                    # Usar la descripción detallada en lugar de solo la clasificación
+                    description = iva_result['description']
+                    return description
                 else:
                     # Usar clasificación general para otros impuestos
                     general_classification = self.classify_tax_status(tax_scheme_name, percent, tax_amount, taxable_amount)
                     classification = f" - {general_classification}"
             
-            # Construir descripción completa
+            # Construir descripción completa para impuestos no-IVA
             description = f"{base_description} {formatted_percent}%{classification}"
             
             logger.debug(f"Descripción generada: {description}")
@@ -725,30 +785,47 @@ class TaxClassifier:
                     )
                     validation_result['recommendations'].append("Verificar cálculo del IVA")
             
-            # Validar reglas específicas de IVA
+            # Validar reglas específicas de IVA con mejor discriminación
             if tax_amount_float > 0:
                 # IVA GRAVADO
                 validation_result['classification'] = 'GRAVADO'
                 
                 if percent_float == 0.0 and tax_amount_float > 0:
                     validation_result['warnings'].append("IVA con porcentaje 0% pero con monto aplicado")
-                    validation_result['recommendations'].append("Verificar si debe ser IVA exento o gravado")
+                    validation_result['recommendations'].append("Verificar si debe ser IVA exento o gravado - posible inconsistencia")
+                elif percent_float not in [12.0, 14.0, 15.0]:
+                    validation_result['warnings'].append(f"IVA con porcentaje no estándar: {percent_float}%")
+                    validation_result['recommendations'].append("Verificar si el porcentaje es correcto según normativa vigente")
                     
             elif taxable_amount_float > 0:
-                # IVA EXENTO
+                # IVA EXENTO - Validaciones específicas para exentos
                 validation_result['classification'] = 'EXENTO'
                 
-                if percent_float > 0:
+                if percent_float == 0.0:
+                    validation_result['recommendations'].append("Verificar que el producto esté en la lista de exenciones de primera necesidad")
+                elif percent_float == 12.0:
+                    validation_result['warnings'].append("IVA con porcentaje 12% pero sin monto aplicado")
+                    validation_result['recommendations'].append("Verificar si el producto tiene exención específica por normativa")
+                elif percent_float == 14.0:
+                    validation_result['warnings'].append("IVA con porcentaje 14% pero sin monto aplicado")
+                    validation_result['recommendations'].append("Verificar si el producto tiene exención especial por normativa")
+                elif percent_float > 0:
                     validation_result['warnings'].append(f"IVA con porcentaje {percent_float}% pero sin monto aplicado")
-                    validation_result['recommendations'].append("Verificar si el producto está correctamente exento")
+                    validation_result['recommendations'].append("Verificar si el producto está correctamente exento por normativa")
                     
             elif taxable_amount_float == 0 and tax_amount_float == 0:
-                # IVA EXCLUIDO
+                # IVA EXCLUIDO - Validaciones específicas para excluidos
                 validation_result['classification'] = 'EXCLUIDO'
                 
-                if percent_float > 0:
+                if percent_float == 0.0:
+                    validation_result['recommendations'].append("Confirmar que se trate de servicios financieros o similares excluidos")
+                elif percent_float == 12.0:
+                    validation_result['recommendations'].append("Verificar si se trata de exportaciones o servicios excluidos")
+                elif percent_float > 0:
                     validation_result['warnings'].append(f"IVA con porcentaje {percent_float}% pero sin base imponible")
-                    validation_result['recommendations'].append("Verificar si el producto está correctamente excluido")
+                    validation_result['recommendations'].append("Verificar si el producto/servicio está correctamente excluido del IVA")
+                else:
+                    validation_result['recommendations'].append("Confirmar que el producto/servicio esté fuera del alcance del IVA")
                     
             else:
                 # Caso especial
