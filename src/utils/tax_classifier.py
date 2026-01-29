@@ -111,30 +111,148 @@ class TaxClassifier:
         
         logger.info("TaxClassifier inicializado con mapeos y reglas de clasificación")
 
-    def get_tax_description(self, tax_scheme_id: str, tax_scheme_name: str, percent: str) -> str:
+    def classify_iva_specifically(self, percent: str, tax_amount: str, taxable_amount: str, tax_scheme_id: str = None) -> Dict[str, str]:
         """
-        Obtiene la descripción completa de un impuesto
+        Clasifica específicamente el IVA según reglas fiscales ecuatorianas detalladas
         
-        Combina el código del impuesto, nombre y porcentaje para crear
-        una descripción legible y completa.
+        Aplica reglas específicas para IVA considerando códigos de impuesto,
+        porcentajes y montos para determinar la clasificación fiscal exacta.
+        
+        Args:
+            percent (str): Porcentaje del IVA
+            tax_amount (str): Monto del IVA
+            taxable_amount (str): Base imponible
+            tax_scheme_id (str): Código del esquema de impuesto (opcional)
+            
+        Returns:
+            Dict[str, str]: Diccionario con clasificación y descripción detallada
+            {
+                'classification': 'GRAVADO|EXENTO|EXCLUIDO|INDEFINIDO',
+                'description': 'Descripción detallada del estado fiscal',
+                'reason': 'Razón de la clasificación'
+            }
+            
+        Ejemplo de uso:
+            result = classifier.classify_iva_specifically('12.00', '120.00', '1000.00')
+            # result = {
+            #     'classification': 'GRAVADO',
+            #     'description': 'IVA Gravado 12%',
+            #     'reason': 'Monto de impuesto aplicado'
+            # }
+        """
+        try:
+            # Convertir valores a float
+            percent_float = float(percent) if percent else 0.0
+            tax_amount_float = float(tax_amount) if tax_amount else 0.0
+            taxable_amount_float = float(taxable_amount) if taxable_amount else 0.0
+            
+            # Validar datos de entrada
+            if percent_float < 0 or tax_amount_float < 0 or taxable_amount_float < 0:
+                return {
+                    'classification': 'INDEFINIDO',
+                    'description': 'IVA con datos negativos',
+                    'reason': 'Valores negativos no permitidos'
+                }
+            
+            # Reglas específicas para IVA
+            if tax_amount_float > 0:
+                # IVA GRAVADO - Hay monto de impuesto
+                if percent_float == 12.0:
+                    return {
+                        'classification': 'GRAVADO',
+                        'description': 'IVA Gravado 12%',
+                        'reason': 'IVA estándar con monto aplicado'
+                    }
+                elif percent_float == 14.0:
+                    return {
+                        'classification': 'GRAVADO',
+                        'description': 'IVA Gravado 14%',
+                        'reason': 'IVA con tasa especial aplicada'
+                    }
+                elif percent_float == 0.0:
+                    return {
+                        'classification': 'GRAVADO',
+                        'description': 'IVA Gravado 0%',
+                        'reason': 'IVA con tasa 0% pero con monto aplicado'
+                    }
+                else:
+                    return {
+                        'classification': 'GRAVADO',
+                        'description': f'IVA Gravado {percent_float}%',
+                        'reason': f'IVA con tasa {percent_float}% aplicada'
+                    }
+                    
+            elif taxable_amount_float > 0:
+                # IVA EXENTO - Hay base imponible pero no hay impuesto
+                if percent_float == 0.0:
+                    return {
+                        'classification': 'EXENTO',
+                        'description': 'IVA Exento 0%',
+                        'reason': 'Productos exentos de IVA'
+                    }
+                elif percent_float > 0:
+                    return {
+                        'classification': 'EXENTO',
+                        'description': f'IVA Exento {percent_float}%',
+                        'reason': 'Base imponible sin monto de impuesto'
+                    }
+                else:
+                    return {
+                        'classification': 'EXENTO',
+                        'description': 'IVA Exento',
+                        'reason': 'Base imponible sin impuesto aplicado'
+                    }
+                    
+            elif taxable_amount_float == 0 and tax_amount_float == 0:
+                # IVA EXCLUIDO - No hay base imponible ni impuesto
+                return {
+                    'classification': 'EXCLUIDO',
+                    'description': 'IVA Excluido',
+                    'reason': 'Productos fuera del alcance del IVA'
+                }
+                
+            else:
+                # Caso especial
+                return {
+                    'classification': 'INDEFINIDO',
+                    'description': 'IVA Indefinido',
+                    'reason': 'Datos inconsistentes o faltantes'
+                }
+                
+        except (ValueError, TypeError) as e:
+            logger.error(f"Error clasificando IVA específicamente: {str(e)}")
+            return {
+                'classification': 'INDEFINIDO',
+                'description': 'IVA con error de datos',
+                'reason': f'Error en procesamiento: {str(e)}'
+            }
+
+    def get_tax_description(self, tax_scheme_id: str, tax_scheme_name: str, percent: str, tax_amount: str = '0', taxable_amount: str = '0') -> str:
+        """
+        Obtiene la descripción completa de un impuesto con clasificación fiscal
+        
+        Combina el código del impuesto, nombre, porcentaje y clasificación fiscal
+        para crear una descripción legible y completa.
         
         Args:
             tax_scheme_id (str): Código del esquema de impuesto
             tax_scheme_name (str): Nombre del esquema de impuesto
             percent (str): Porcentaje del impuesto
+            tax_amount (str): Monto del impuesto (opcional)
+            taxable_amount (str): Base imponible (opcional)
             
         Returns:
-            str: Descripción completa del impuesto
+            str: Descripción completa del impuesto con clasificación
             
         Ejemplo de uso:
-            description = classifier.get_tax_description('2', 'IVA', '12.00')
-            # description = 'IVA 12.00%'
+            description = classifier.get_tax_description('2', 'IVA', '12.00', '120.00', '1000.00')
+            # description = 'IVA 12.00% - GRAVADO'
             
         Ejemplo de descripciones generadas:
-            - 'IVA 12.00%' para IVA estándar
-            - 'ICE 300.00%' para ICE
-            - 'IRBPNR 1.00%' para IRBPNR
-            - 'ISD 5.00%' para ISD
+            - 'IVA 12.00% - GRAVADO' para IVA estándar
+            - 'IVA 0.00% - EXENTO' para IVA exento
+            - 'ICE 300.00% - GRAVADO' para ICE
+            - 'IRBPNR 1.00% - GRAVADO' para IRBPNR
         """
         try:
             # Obtener descripción base del código
@@ -147,8 +265,20 @@ class TaxClassifier:
             except (ValueError, TypeError):
                 formatted_percent = percent
             
+            # Clasificar el impuesto si se proporcionan los montos
+            classification = ""
+            if tax_amount and taxable_amount:
+                if tax_scheme_name.upper() == 'IVA':
+                    # Usar clasificación específica para IVA
+                    iva_result = self.classify_iva_specifically(percent, tax_amount, taxable_amount, tax_scheme_id)
+                    classification = f" - {iva_result['classification']}"
+                else:
+                    # Usar clasificación general para otros impuestos
+                    general_classification = self.classify_tax_status(tax_scheme_name, percent, tax_amount, taxable_amount)
+                    classification = f" - {general_classification}"
+            
             # Construir descripción completa
-            description = f"{base_description} {formatted_percent}%"
+            description = f"{base_description} {formatted_percent}%{classification}"
             
             logger.debug(f"Descripción generada: {description}")
             return description
@@ -159,10 +289,11 @@ class TaxClassifier:
 
     def classify_tax_status(self, tax_type: str, percent: str, tax_amount: str, taxable_amount: str) -> str:
         """
-        Clasifica el estado fiscal de una línea de factura
+        Clasifica el estado fiscal de una línea de factura según reglas fiscales ecuatorianas
         
         Determina si una línea es GRAVADO, EXENTO o EXCLUIDO basándose
-        en el tipo de impuesto, porcentaje y montos.
+        en el tipo de impuesto, porcentaje y montos, aplicando reglas específicas
+        para cada tipo de impuesto según la normativa ecuatoriana.
         
         Args:
             tax_type (str): Tipo de impuesto (IVA, ICE, etc.)
@@ -171,7 +302,7 @@ class TaxClassifier:
             taxable_amount (str): Base imponible
             
         Returns:
-            str: Clasificación fiscal ('GRAVADO', 'EXENTO', 'EXCLUIDO')
+            str: Clasificación fiscal ('GRAVADO', 'EXENTO', 'EXCLUIDO', 'INDEFINIDO')
             
         Ejemplo de uso:
             status = classifier.classify_tax_status('IVA', '12.00', '120.00', '1000.00')
@@ -180,10 +311,11 @@ class TaxClassifier:
             status = classifier.classify_tax_status('IVA', '0.00', '0.00', '1000.00')
             # status = 'EXENTO'
             
-        Lógica de clasificación:
-            - GRAVADO: Cuando hay impuesto aplicado (porcentaje > 0 y monto > 0)
-            - EXENTO: Cuando no hay impuesto pero hay base imponible
-            - EXCLUIDO: Cuando no hay impuesto ni base imponible
+        Reglas de clasificación fiscal ecuatoriana:
+            - GRAVADO: Tiene monto de impuesto > 0 (independientemente del porcentaje)
+            - EXENTO: Tiene base imponible > 0 pero monto de impuesto = 0
+            - EXCLUIDO: Base imponible = 0 y monto de impuesto = 0
+            - INDEFINIDO: Datos inconsistentes o faltantes
         """
         try:
             # Convertir valores a float para comparaciones
@@ -191,32 +323,38 @@ class TaxClassifier:
             tax_amount_float = float(tax_amount) if tax_amount else 0.0
             taxable_amount_float = float(taxable_amount) if taxable_amount else 0.0
             
-            # Obtener reglas de clasificación para el tipo de impuesto
-            rules = self.tax_classifications.get(tax_type, {})
-            gravado_threshold = rules.get('gravado_threshold', 0.01)
+            # Validar datos de entrada
+            if percent_float < 0 or tax_amount_float < 0 or taxable_amount_float < 0:
+                logger.warning(f"Datos negativos detectados: {tax_type} - {percent}% - ${tax_amount} - ${taxable_amount}")
+                return 'INDEFINIDO'
             
-            # Clasificar según las reglas
-            if percent_float > gravado_threshold and tax_amount_float > 0:
-                # Hay impuesto aplicado
+            # Reglas de clasificación fiscal ecuatoriana mejoradas
+            if tax_amount_float > 0:
+                # Hay monto de impuesto aplicado - GRAVADO
                 classification = 'GRAVADO'
-                logger.debug(f"Línea clasificada como GRAVADO: {tax_type} {percent_float}%")
+                logger.debug(f"Línea clasificada como GRAVADO: {tax_type} {percent_float}% - ${tax_amount_float}")
                 
             elif taxable_amount_float > 0:
-                # Hay base imponible pero no hay impuesto
+                # Hay base imponible pero no hay impuesto - EXENTO
                 classification = 'EXENTO'
-                logger.debug(f"Línea clasificada como EXENTO: {tax_type} sin impuesto")
+                logger.debug(f"Línea clasificada como EXENTO: {tax_type} {percent_float}% - Base: ${taxable_amount_float}")
+                
+            elif taxable_amount_float == 0 and tax_amount_float == 0:
+                # No hay base imponible ni impuesto - EXCLUIDO
+                classification = 'EXCLUIDO'
+                logger.debug(f"Línea clasificada como EXCLUIDO: {tax_type} - Sin base ni impuesto")
                 
             else:
-                # No hay base imponible ni impuesto
-                classification = 'EXCLUIDO'
-                logger.debug(f"Línea clasificada como EXCLUIDO: {tax_type} sin base")
+                # Caso especial o datos inconsistentes
+                classification = 'INDEFINIDO'
+                logger.warning(f"Clasificación INDEFINIDA: {tax_type} - {percent}% - ${tax_amount} - ${taxable_amount}")
             
             return classification
             
         except (ValueError, TypeError) as e:
             logger.error(f"Error clasificando estado fiscal: {str(e)}")
-            # Por defecto, clasificar como EXCLUIDO en caso de error
-            return 'EXCLUIDO'
+            # Por defecto, clasificar como INDEFINIDO en caso de error
+            return 'INDEFINIDO'
 
     def get_tax_summary(self, tax_data: List[Dict[str, Any]]) -> Dict[str, Any]:
         """
@@ -513,3 +651,131 @@ class TaxClassifier:
             logger.error(f"Error generando estadísticas: {str(e)}")
             
         return stats
+
+    def validate_iva_rules(self, percent: str, tax_amount: str, taxable_amount: str, tax_scheme_id: str = None) -> Dict[str, Any]:
+        """
+        Valida reglas específicas para IVA según normativa ecuatoriana
+        
+        Aplica validaciones específicas para IVA considerando:
+        - Porcentajes permitidos por ley
+        - Consistencia entre porcentaje y monto
+        - Reglas de exención y exclusión
+        - Códigos de impuesto válidos
+        
+        Args:
+            percent (str): Porcentaje del IVA
+            tax_amount (str): Monto del IVA
+            taxable_amount (str): Base imponible
+            tax_scheme_id (str): Código del esquema de impuesto (opcional)
+            
+        Returns:
+            Dict[str, Any]: Resultado de la validación
+            {
+                'valid': bool,
+                'errors': List[str],
+                'warnings': List[str],
+                'classification': str,
+                'recommendations': List[str]
+            }
+            
+        Ejemplo de uso:
+            result = classifier.validate_iva_rules('12.00', '120.00', '1000.00')
+            # result = {
+            #     'valid': True,
+            #     'errors': [],
+            #     'warnings': [],
+            #     'classification': 'GRAVADO',
+            #     'recommendations': []
+            # }
+        """
+        validation_result = {
+            'valid': True,
+            'errors': [],
+            'warnings': [],
+            'classification': 'INDEFINIDO',
+            'recommendations': []
+        }
+        
+        try:
+            # Convertir valores a float
+            percent_float = float(percent) if percent else 0.0
+            tax_amount_float = float(tax_amount) if tax_amount else 0.0
+            taxable_amount_float = float(taxable_amount) if taxable_amount else 0.0
+            
+            # Validar datos de entrada
+            if percent_float < 0 or tax_amount_float < 0 or taxable_amount_float < 0:
+                validation_result['errors'].append("Valores negativos no permitidos en IVA")
+                validation_result['valid'] = False
+                return validation_result
+            
+            # Validar porcentajes de IVA permitidos por ley ecuatoriana
+            valid_percentages = [0.0, 12.0, 14.0, 15.0]
+            if percent_float not in valid_percentages and percent_float > 0:
+                validation_result['warnings'].append(f"Porcentaje de IVA inusual: {percent_float}%")
+                validation_result['recommendations'].append("Verificar si el porcentaje es correcto según normativa vigente")
+            
+            # Validar consistencia entre porcentaje y monto
+            if percent_float > 0 and taxable_amount_float > 0:
+                expected_tax = taxable_amount_float * (percent_float / 100)
+                tolerance = 0.01  # Tolerancia de 1 centavo
+                
+                if abs(expected_tax - tax_amount_float) > tolerance:
+                    validation_result['warnings'].append(
+                        f"Inconsistencia entre porcentaje ({percent_float}%) y monto de IVA (${tax_amount_float:.2f})"
+                    )
+                    validation_result['recommendations'].append("Verificar cálculo del IVA")
+            
+            # Validar reglas específicas de IVA
+            if tax_amount_float > 0:
+                # IVA GRAVADO
+                validation_result['classification'] = 'GRAVADO'
+                
+                if percent_float == 0.0 and tax_amount_float > 0:
+                    validation_result['warnings'].append("IVA con porcentaje 0% pero con monto aplicado")
+                    validation_result['recommendations'].append("Verificar si debe ser IVA exento o gravado")
+                    
+            elif taxable_amount_float > 0:
+                # IVA EXENTO
+                validation_result['classification'] = 'EXENTO'
+                
+                if percent_float > 0:
+                    validation_result['warnings'].append(f"IVA con porcentaje {percent_float}% pero sin monto aplicado")
+                    validation_result['recommendations'].append("Verificar si el producto está correctamente exento")
+                    
+            elif taxable_amount_float == 0 and tax_amount_float == 0:
+                # IVA EXCLUIDO
+                validation_result['classification'] = 'EXCLUIDO'
+                
+                if percent_float > 0:
+                    validation_result['warnings'].append(f"IVA con porcentaje {percent_float}% pero sin base imponible")
+                    validation_result['recommendations'].append("Verificar si el producto está correctamente excluido")
+                    
+            else:
+                # Caso especial
+                validation_result['classification'] = 'INDEFINIDO'
+                validation_result['errors'].append("No se puede determinar la clasificación del IVA")
+                validation_result['valid'] = False
+            
+            # Validar códigos de impuesto si se proporcionan
+            if tax_scheme_id:
+                valid_codes = ['2', '7', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
+                if tax_scheme_id not in valid_codes:
+                    validation_result['warnings'].append(f"Código de IVA no reconocido: {tax_scheme_id}")
+                    validation_result['recommendations'].append("Verificar código de impuesto según normativa")
+            
+            # Recomendaciones generales
+            if validation_result['classification'] == 'GRAVADO':
+                validation_result['recommendations'].append("Asegurar que el IVA se declare correctamente en la contabilidad")
+            elif validation_result['classification'] == 'EXENTO':
+                validation_result['recommendations'].append("Verificar que el producto esté en la lista de exenciones")
+            elif validation_result['classification'] == 'EXCLUIDO':
+                validation_result['recommendations'].append("Confirmar que el producto esté fuera del alcance del IVA")
+            
+            logger.info(f"Validación de IVA completada: {validation_result['classification']}")
+            
+        except (ValueError, TypeError) as e:
+            validation_result['valid'] = False
+            validation_result['errors'].append(f"Error en validación de IVA: {str(e)}")
+            logger.error(f"Error validando reglas de IVA: {str(e)}")
+            
+        return validation_result

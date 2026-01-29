@@ -631,6 +631,7 @@ class XMLProcessor:
                     'Nit': basic_info['NIT_Proveedor'],
                     'Detalle': tax_description,
                     'Tipo': tax_type,
+                    'Estado_Fiscal': tax_type,  # Nueva columna con clasificación fiscal
                     'Valor': tax_separated.get('consolidated_tax_amount', '0.00'),
                     'Base': tax_separated.get('consolidated_base_amount', '0.00'),
                     'Centro_Costo': '',  # Vacío según la imagen
@@ -648,7 +649,7 @@ class XMLProcessor:
 
     def classify_tax_type(self, tax_line: Dict[str, Any]) -> str:
         """
-        Clasifica el tipo de impuesto según las reglas fiscales ecuatorianas
+        Clasifica el tipo de impuesto según las reglas fiscales ecuatorianas mejoradas
         
         Args:
             tax_line (Dict[str, Any]): Información de la línea de impuesto
@@ -656,29 +657,40 @@ class XMLProcessor:
         Returns:
             str: Clasificación del impuesto (GRAVADO, EXENTO, EXCLUIDO, INDEFINIDO)
             
-        Reglas de clasificación:
+        Reglas de clasificación fiscal ecuatoriana:
         - GRAVADO: Tiene monto de impuesto > 0 (independientemente del porcentaje)
-        - EXENTO: Tiene porcentaje > 0 pero monto de impuesto = 0
+        - EXENTO: Tiene base imponible > 0 pero monto de impuesto = 0
         - EXCLUIDO: Base imponible = 0 y monto de impuesto = 0
-        - INDEFINIDO: No se puede determinar la clasificación
+        - INDEFINIDO: Datos inconsistentes o faltantes
         """
         try:
             # Obtener valores del impuesto consolidado
             percent = tax_line.get('Percent', '0')
             tax_amount = float(tax_line.get('consolidated_tax_amount', '0'))
             base_amount = float(tax_line.get('consolidated_base_amount', '0'))
+            scheme_name = tax_line.get('TaxSchemeName', '')
             
-            # Reglas de clasificación fiscal ecuatoriana corregidas
+            # Validar datos de entrada
+            if tax_amount < 0 or base_amount < 0:
+                logger.warning(f"Datos negativos en clasificación: {scheme_name} - {percent}% - ${tax_amount} - ${base_amount}")
+                return 'INDEFINIDO'
+            
+            # Reglas de clasificación fiscal ecuatoriana mejoradas
             if tax_amount > 0:
+                # Hay monto de impuesto aplicado - GRAVADO
                 return 'GRAVADO'
-            elif percent != 'MIXTO' and float(percent) > 0 and tax_amount == 0:
+            elif base_amount > 0:
+                # Hay base imponible pero no hay impuesto - EXENTO
                 return 'EXENTO'
             elif base_amount == 0 and tax_amount == 0:
+                # No hay base imponible ni impuesto - EXCLUIDO
                 return 'EXCLUIDO'
             else:
+                # Caso especial o datos inconsistentes
                 return 'INDEFINIDO'
                 
-        except (ValueError, TypeError):
+        except (ValueError, TypeError) as e:
+            logger.error(f"Error clasificando tipo de impuesto: {str(e)}")
             return 'INDEFINIDO'
 
     def create_tax_description(self, tax_line: Dict[str, Any]) -> str:
@@ -791,25 +803,42 @@ class XMLProcessor:
 
     def create_separated_tax_description(self, tax_separated: Dict[str, Any]) -> str:
         """
-        Crea la descripción del impuesto separado por tipo incluyendo clasificación fiscal
+        Crea la descripción del impuesto separado por tipo incluyendo clasificación fiscal detallada
         
         Args:
             tax_separated (Dict[str, Any]): Información del impuesto separado
             
         Returns:
-            str: Descripción formateada del impuesto separado con clasificación
+            str: Descripción formateada del impuesto separado con clasificación fiscal
+            
+        Ejemplo de descripciones generadas:
+            - "IVA - Impuesto (12.00%) - GRAVADO"
+            - "IVA - Impuesto (0.00%) - EXENTO"
+            - "ICE - Impuesto (300.00%) - GRAVADO - Consolidado (2 líneas)"
         """
         try:
             scheme_name = tax_separated.get('TaxSchemeName', '')
             percent = tax_separated.get('Percent', '0.00')
             line_count = tax_separated.get('line_count', 1)
+            tax_amount = tax_separated.get('consolidated_tax_amount', '0.00')
+            base_amount = tax_separated.get('consolidated_base_amount', '0.00')
             
             # Clasificar el tipo de impuesto
             tax_type = self.classify_tax_type(tax_separated)
             
             # Crear descripción dinámica para cualquier tipo de impuesto
             if scheme_name:
-                base_description = f"{scheme_name} - Impuesto ({percent}%) - {tax_type}"
+                # Formatear porcentaje
+                try:
+                    percent_float = float(percent)
+                    formatted_percent = f"{percent_float:.2f}"
+                except (ValueError, TypeError):
+                    formatted_percent = percent
+                
+                # Crear descripción base con clasificación fiscal
+                base_description = f"{scheme_name} - Impuesto ({formatted_percent}%) - {tax_type}"
+                
+                # Agregar información de consolidación si aplica
                 if line_count > 1:
                     return f"{base_description} - Consolidado ({line_count} líneas)"
                 else:
@@ -817,7 +846,8 @@ class XMLProcessor:
             else:
                 return f"Sin Impuestos - {tax_type}"
                 
-        except Exception:
+        except Exception as e:
+            logger.error(f"Error creando descripción de impuesto separado: {str(e)}")
             return "Sin Impuestos - INDEFINIDO"
 
     def process_zip_file(self, file) -> List[Dict[str, Any]]:

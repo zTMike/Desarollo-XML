@@ -1,0 +1,2021 @@
+<?xml version="1.0" encoding="utf-8"?><AttachedDocument xmlns="urn:oasis:names:specification:ubl:schema:xsd:AttachedDocument-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:sts="dian:gov:co:facturaelectronica:Structures-2-1" xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" xmlns:xades141="http://uri.etsi.org/01903/v1.4.1#" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ext:UBLExtensions><ext:UBLExtension><ext:ExtensionContent><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="Signature-7161daa6-e758-4b7b-af2a-20318bd75d29"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><ds:Reference Id="Reference-40fbcdff-d5ec-4d01-b2f1-0746b26d48e8" URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>MEojUF5N3dsee7gTcyG2+jbeN99yIDQprFj2cS8AyKU=</ds:DigestValue></ds:Reference><ds:Reference Id="ReferenceKeyInfo" URI="#Signature-7161daa6-e758-4b7b-af2a-20318bd75d29-KeyInfo"><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>YVqZA1RTt9NVoFM/7Im2x+LymUGcrfhrKUbiHmQit+8=</ds:DigestValue></ds:Reference><ds:Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#xmldsig-Signature-7161daa6-e758-4b7b-af2a-20318bd75d29-signedprops"><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>ROTW87c6e/eDe38UmF5hNRRcdzMyQOCgMa+HsM0VHqw=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue Id="SignatureValue-7161daa6-e758-4b7b-af2a-20318bd75d29">ps7/E0f7xxnmcr9S8tytL9C51wFPEPgX3OId8lUg0XtbSMPndBQFjbKzXzt/5lqBhY2NVjOkj+tQOJvMxL5RJCGeqpndPhxn+yqXJWs6yAjoSb3BDmEOcUiAjMLuBAD2nI1RZYzsvuE94HO9Kl648gh+q5bvMvgkL+YB+Zs5N54bc8IsZNFEsk9ltPpxTo7tU/S5MpJera1+ino9SEhVy+Ia8n7DZfj5gc1yVAa4YkukIkvGKTV7ZmAb6UIPlEerzgeHb4y51E/zw9dUF4MwQqy1ttYKvF5OK1Oi2EKYjq36E9slMg8+zh6oqX/JCfqG6UeGwdvXavWKI5Z4iFz7Mw==</ds:SignatureValue><ds:KeyInfo Id="Signature-7161daa6-e758-4b7b-af2a-20318bd75d29-KeyInfo"><ds:X509Data><ds:X509Certificate>MIIJNTCCBx2gAwIBAgIQTvxy2EmZryBm2cQ8PtyKhDANBgkqhkiG9w0BAQsFADCBrTEcMBoGA1UECQwTd3d3LmNlcnRpY2FtYXJhLmNvbTEPMA0GA1UEBwwGQk9HT1RBMRkwFwYDVQQIDBBESVNUUklUTyBDQVBJVEFMMQswCQYDVQQGEwJDTzEYMBYGA1UECwwPTklUIDgzMDA4NDQzMy03MRgwFgYDVQQKDA9DRVJUSUNBTUFSQSBTLkExIDAeBgNVBAMMF0FDIFNVQiA0MDk2IENFUlRJQ0FNQVJBMCAXDTI0MDkwNTE0NDYyMFoYDzIwMjUwODI1MTQ0NjIwWjCCASIxFTATBgNVBAQMDFNBTENFRE8gRElBWjEWMBQGA1UECQwNQ0wgMjIgQSA2OCA5NzEUMBIGA1UECAwLQk9HT1RBIEQuQy4xIDAeBgNVBAsMF0ZBQ1RVUkFDSU9OIEVMRUNUUk9OSUNBMRAwDgYDVQQFEwcyMjA5NTg3MRowGAYKKwYBBAGBtWMCAxMKODMwMDAyMzY2MDEXMBUGCisGAQQBgbVjAgITBzU2OTYzNTIxHjAcBgNVBAoMFUJJTUJPIERFIENPTE9NQklBIFMgQTEUMBIGA1UEBwwLQk9HT1RBIEQuQy4xDzANBgNVBCoMBkNBUkxPUzELMAkGA1UEBhMCQ08xHjAcBgNVBAMMFUJJTUJPIERFIENPTE9NQklBIFMgQTCCASAwDQYJKoZIhvcNAQEBBQADggENADCCAQgCggEBALnWON1D3pDa7bu4EZLWTNDMcLfLwho8zytwuKEX//Yg4TODrZuo9pFzFbCIShk8dl/EmWsXvaMzQk70c/njfNBSqs7go7IAKBs/+ETg0hYRnarMxjxRdAQ4lBTgJBGXL1av1e146UmWBsI9xZxJq7PC+nFy3Yozeg6dzd8oCDfPGgzA8zZ9vacxWyVS9DYMWjuIGsJt7OvZjXDaYN9oCufqCgbkk/ZqlF1ysOWh0RPpptTaNxFpRqrty9qLQMin9xTJtZFWpHHwVIkW8CbJZisNX5UONowKhzCtxpajFiM0COSECKjAoxY0uj/GJBJ2B/zfeicc6uYWF0rFIjfceX0CAQOjggPXMIID0zA6BggrBgEFBQcBAQQuMCwwKgYIKwYBBQUHMAGGHmh0dHA6Ly9vY3NwNDA5Ni5jZXJ0aWNhbWFyYS5jbzAqBgNVHREEIzAhgR9WTEFESU1JUi5CQVJSRVJBQEdSVVBPQklNQk8uQ09NMIIBCwYDVR0gBIIBAjCB/zCBmQYLKwYBBAGBtWMyAQIwgYkwKwYIKwYBBQUHAgEWH2h0dHA6Ly93d3cuY2VydGljYW1hcmEuY29tL2RwYy8wWgYIKwYBBQUHAgIwThpMTGltaXRhY2lvbmVzIGRlIGdhcmFudO1hcyBkZSBlc3RlIGNlcnRpZmljYWRvIHNlIHB1ZWRlbiBlbmNvbnRyYXIgZW4gbGEgRFBDLjBhBgsrBgEEAYG1YwoKATBSMFAGCCsGAQUFBwICMEQaQkRpc3Bvc2l0aXZvIGRlIGhhcmR3YXJlIChUb2tlbikgQ/NkaWdvIGRlIGFjcmVkaXRhY2nzbjogMTYtRUNELTAwMjAMBgNVHRMBAf8EAjAAMA4GA1UdDwEB/wQEAwID+DAnBgNVHSUEIDAeBggrBgEFBQcDAgYIKwYBBQUHAwQGCCsGAQUFBwMBMB0GA1UdDgQWBBTXXbQh8qlG+GvSmibRI2eeQkUjujAfBgNVHSMEGDAWgBRmGaP1mzCwDE5NGZlgQgnSWjFKhzCCAdEGA1UdHwSCAcgwggHEMIH1oIHyoIHvhnRodHRwOi8vd3d3LmNlcnRpY2FtYXJhLmNvbS9yZXBvc2l0b3Jpb3Jldm9jYWNpb25lcy9hY19zdWJvcmRpbmFkYV9jZXJ0aWNhbWFyYV9jb25fZXh0ZW5zaW9uX2NyaXRpY2FfNDA5Ni5jcmw/Y3JsPWNybIZ3aHR0cDovL21pcnJvci5jZXJ0aWNhbWFyYS5jb20vcmVwb3NpdG9yaW9yZXZvY2FjaW9uZXMvYWNfc3Vib3JkaW5hZGFfY2VydGljYW1hcmFfY29uX2V4dGVuc2lvbl9jcml0aWNhXzQwOTYuY3JsP2NybD1jcmwwgcmggcaggcOGXmh0dHA6Ly93d3cuY2VydGljYW1hcmEuY29tL3JlcG9zaXRvcmlvcmV2b2NhY2lvbmVzL2FjX3N1Ym9yZGluYWRhX2NlcnRpY2FtYXJhXzQwOTYuY3JsP2NybD1jcmyGYWh0dHA6Ly9taXJyb3IuY2VydGljYW1hcmEuY29tL3JlcG9zaXRvcmlvcmV2b2NhY2lvbmVzL2FjX3N1Ym9yZGluYWRhX2NlcnRpY2FtYXJhXzQwOTYuY3JsP2NybD1jcmwwDQYJKoZIhvcNAQELBQADggIBAA1awoZgNgCTpm+A78eSYnKXuYObbOQWmvvzF/cCswitr/IFRr54kr22N6TzgruoCWXtx8m52aPqGwj+g1lk+hIY41wzXHnWGKcmFZrjRg3UNJIy1ZUJ+w0Yde9kqrixMYo65WgeZF9c/k0xmn6h6Tyh0sPggYvsw4Zar2F8Ec/Va/ZqayDU26uhlR8ZTG3blcJgMvrcu68kzFHJ6fPJ+RWrJEh4iz7r45bkS2haFMRCbNxdCfSEVAbzze6GI9ekEnElAksTTTm+SLTJ9JWPmTfsHJFxS7cePqwWtgVvsiWO3BTSERnkdXm+3nXTqHR6IqdrkJ9LA4dexo2wzGtB7XOdyZZKWJxbNixXzWqjhM0Jwvpm/7xDNPAg89eI4drCOKaB+xhkuNt47yLCnH8+8JZOWPkCP4BAXmXL+KCQrH8WX9tTCmKbCajaAym2KwZotVNidKl6L/N959RopOCP/Ss34QrfhJLW2qPIEJXVeQJAsyYie1OrI5nf8HZSkSgXlaXkPssCa8BQ/7F2BZnzAflMio1WAwM7NK9Sp9B3T61tV2JBHDqBksPut2kw+wVWCmBoJeyx+gKVlB0pkfpIMrASRWnqK8IRJSwMgHmmu7kfqaywS/qoOSvnPNQDrC3dxwTWVYv7ibBYlbsLQlJp/dcMiG+e4zpTf6mBGISf56l+</ds:X509Certificate></ds:X509Data><ds:KeyValue><ds:RSAKeyValue><ds:Modulus>udY43UPekNrtu7gRktZM0Mxwt8vCGjzPK3C4oRf/9iDhM4Otm6j2kXMVsIhKGTx2X8SZaxe9ozNCTvRz+eN80FKqzuCjsgAoGz/4RODSFhGdqszGPFF0BDiUFOAkEZcvVq/V7XjpSZYGwj3FnEmrs8L6cXLdijN6Dp3N3ygIN88aDMDzNn29pzFbJVL0NgxaO4gawm3s69mNcNpg32gK5+oKBuST9mqUXXKw5aHRE+mm1No3EWlGqu3L2otAyKf3FMm1kVakcfBUiRbwJslmKw1flQ42jAqHMK3GlqMWIzQI5IQIqMCjFjS6P8YkEnYH/N96Jxzq5hYXSsUiN9x5fQ==</ds:Modulus><ds:Exponent>Aw==</ds:Exponent></ds:RSAKeyValue></ds:KeyValue></ds:KeyInfo><ds:Object Id="XadesObjectId-9f4ccb40-9262-4c6e-b936-682d7e0906f5"><xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" Id="QualifyingProperties-5711e27a-b605-45a0-a94a-6aeaf9c792cf" Target="#Signature-7161daa6-e758-4b7b-af2a-20318bd75d29"><xades:SignedProperties Id="xmldsig-Signature-7161daa6-e758-4b7b-af2a-20318bd75d29-signedprops"><xades:SignedSignatureProperties><xades:SigningTime>2025-08-15T01:08:28+00:00</xades:SigningTime><xades:SigningCertificate><xades:Cert><xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>AAyA/bMzCBUPZFibu+cheZL4Jad2LVQaMA+ePBGhjW8=</ds:DigestValue></xades:CertDigest><xades:IssuerSerial><ds:X509IssuerName>CN=AC SUB 4096 CERTICAMARA, O=CERTICAMARA S.A, OU=NIT 830084433-7, C=CO, S=DISTRITO CAPITAL, L=BOGOTA, STREET=www.certicamara.com</ds:X509IssuerName><ds:X509SerialNumber>104990571810330332399612597221073914500</ds:X509SerialNumber></xades:IssuerSerial></xades:Cert></xades:SigningCertificate><xades:SignaturePolicyIdentifier><xades:SignaturePolicyId><xades:SigPolicyId><xades:Identifier>https://facturaelectronica.dian.gov.co/politicadefirma/v2/politicadefirmav2.pdf</xades:Identifier><xades:Description /></xades:SigPolicyId><xades:SigPolicyHash><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>dMoMvtcG5aIzgYo0tIsSQeVJBDnUnfSOfBpxXrmor0Y=</ds:DigestValue></xades:SigPolicyHash></xades:SignaturePolicyId></xades:SignaturePolicyIdentifier><xades:SignerRole><xades:ClaimedRoles><xades:ClaimedRole>third party</xades:ClaimedRole></xades:ClaimedRoles></xades:SignerRole></xades:SignedSignatureProperties><xades:SignedDataObjectProperties><xades:DataObjectFormat ObjectReference="#Reference-40fbcdff-d5ec-4d01-b2f1-0746b26d48e8"><xades:MimeType>text/xml</xades:MimeType><xades:Encoding>UTF-8</xades:Encoding></xades:DataObjectFormat></xades:SignedDataObjectProperties></xades:SignedProperties></xades:QualifyingProperties></ds:Object></ds:Signature></ext:ExtensionContent></ext:UBLExtension></ext:UBLExtensions><cbc:UBLVersionID>UBL 2.1</cbc:UBLVersionID><cbc:CustomizationID>10</cbc:CustomizationID><cbc:ProfileID>DIAN 2.1: Factura Electrónica de Venta</cbc:ProfileID><cbc:ProfileExecutionID>1</cbc:ProfileExecutionID><cbc:ID>0</cbc:ID><cbc:IssueDate>2025-08-15</cbc:IssueDate><cbc:IssueTime>06:08:28-05:00</cbc:IssueTime><cbc:DocumentType>Contenedor de Factura Electrónica</cbc:DocumentType><cbc:ParentDocumentID>EE411650282</cbc:ParentDocumentID><cac:SenderParty><cac:PartyTaxScheme><cbc:RegistrationName>BIMBO DE COLOMBIA S.A.</cbc:RegistrationName><cbc:CompanyID schemeAgencyID="195" schemeID="0" schemeName="31">830002366</cbc:CompanyID><cbc:TaxLevelCode listName="48">O-13;O-15</cbc:TaxLevelCode><cac:TaxScheme><cbc:ID>01</cbc:ID><cbc:Name>IVA</cbc:Name></cac:TaxScheme></cac:PartyTaxScheme></cac:SenderParty><cac:ReceiverParty><cac:PartyTaxScheme><cbc:RegistrationName>INVERSIONES JOMARA S A S</cbc:RegistrationName><cbc:CompanyID schemeAgencyID="195" schemeID="3" schemeName="31">900477710</cbc:CompanyID><cbc:TaxLevelCode listName="48">R-99-PN</cbc:TaxLevelCode><cac:TaxScheme><cbc:ID>01</cbc:ID><cbc:Name>IVA</cbc:Name></cac:TaxScheme></cac:PartyTaxScheme></cac:ReceiverParty><cac:Attachment><cac:ExternalReference><cbc:MimeCode>text/xml</cbc:MimeCode><cbc:EncodingCode>UTF-8</cbc:EncodingCode><cbc:Description><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:sts="dian:gov:co:facturaelectronica:Structures-2-1" xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" xmlns:xades141="http://uri.etsi.org/01903/v1.4.1#" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <ext:UBLExtensions>
+      <ext:UBLExtension>
+         <ext:ExtensionContent>
+            <sts:DianExtensions>
+               <sts:InvoiceControl>
+                  <sts:InvoiceAuthorization>18764076074859</sts:InvoiceAuthorization>
+                  <sts:AuthorizationPeriod>
+                     <cbc:StartDate>2024-07-30</cbc:StartDate>
+                     <cbc:EndDate>2026-07-30</cbc:EndDate>
+                  </sts:AuthorizationPeriod>
+                  <sts:AuthorizedInvoices>
+                     <sts:Prefix>EE41</sts:Prefix>
+                     <sts:From>1000001</sts:From>
+                     <sts:To>2000000</sts:To>
+                  </sts:AuthorizedInvoices>
+               </sts:InvoiceControl>
+               <sts:InvoiceSource>
+                  <cbc:IdentificationCode listAgencyID="6" listAgencyName="United Nations Economic Commission for Europe" listSchemeURI="urn:oasis:names:specification:ubl:codelist:gc:CountryIdentificationCode-2.1">CO</cbc:IdentificationCode>
+               </sts:InvoiceSource>
+               <sts:SoftwareProvider>
+                  <sts:ProviderID schemeID="9" schemeName="31" schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">900508908</sts:ProviderID>
+                  <sts:SoftwareID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">56f2ae4e-9812-4fad-9255-08fcfcd5ccb0</sts:SoftwareID>
+               </sts:SoftwareProvider>
+               <sts:SoftwareSecurityCode schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">f912b0efd5557bb9990574d3bf2ea7954b84799f92ed12376a6083c403ee10118f0ad67992235dc3a10dcf7082084a1f</sts:SoftwareSecurityCode>
+               <sts:AuthorizationProvider>
+                  <sts:AuthorizationProviderID schemeID="4" schemeName="31" schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">800197268</sts:AuthorizationProviderID>
+               </sts:AuthorizationProvider>
+               <sts:QRCode>URL=https://catalogo-vpfe.dian.gov.co/document/searchqr?documentkey=57ae76a478a2d848f28374f872959507b2887a9e53aee5d0a4aad0eb60b2da6f4e63037bb0649562810d3aac111c3dc7</sts:QRCode>
+            </sts:DianExtensions>
+         </ext:ExtensionContent>
+      </ext:UBLExtension>
+   <ext:UBLExtension><ext:ExtensionContent><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="Signature-e3529ff2-1d65-4561-a6d5-c7ba30866461"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><ds:Reference Id="Reference-e3529ff2-1d65-4561-a6d5-c7ba30866461" URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>YbGzFcRnuSoHS2GxIktibRoqvvtm4nh/7t3Nrq/WlwY=</ds:DigestValue></ds:Reference><ds:Reference Id="ReferenceKeyInfo" URI="#KeyInfoId-Signature-e3529ff2-1d65-4561-a6d5-c7ba30866461"><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>pPwIzbLLUfMUC77eokKUfR/jpUJQ8ABh8eY6mQD2MGg=</ds:DigestValue></ds:Reference><ds:Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#SignedProperties-Signature-e3529ff2-1d65-4561-a6d5-c7ba30866461"><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>dZLKeciSM6LWMT0Bg8vrg7UnaUkPBRWhdme5bKQ1Y0A=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue Id="SignatureValue-e3529ff2-1d65-4561-a6d5-c7ba30866461">MVWTdpIh8A7JD6Jamu4GElmop1M/HI3W6uxNXOiYaIFu+VvJGWtgKNTo/8N6qG4gD3MsVDFEw+NQa+CTmZJWEpfjoGZ8GNRJUUqzPz2nz3Q6a4Veqdt6Bw7QSzXQRLSMZkAcUFoyBZuELSwlpFg7GIJD9qFzy8k1ECf+D2IVJDXMw0/EHhl54UNiYVYdFNlGpasVreuw50rU0k9SuFnY6diWCp/4gMsRvYarOlz4YESmvND6zJKMxgAoHk7tbuMSJoSeSsm2b9GdwmcoicmGnXCkO2GIfgOrQfK0ot5F22ULC2As1LbUFL4cbNo51LAblEnoEGKCR1lnKQ8HG0DHXQ==</ds:SignatureValue><ds:KeyInfo Id="KeyInfoId-Signature-e3529ff2-1d65-4561-a6d5-c7ba30866461"><ds:X509Data><ds:X509Certificate>MIIJNTCCBx2gAwIBAgIQTvxy2EmZryBm2cQ8PtyKhDANBgkqhkiG9w0BAQsFADCBrTEcMBoGA1UECQwTd3d3LmNlcnRpY2FtYXJhLmNvbTEPMA0GA1UEBwwGQk9HT1RBMRkwFwYDVQQIDBBESVNUUklUTyBDQVBJVEFMMQswCQYDVQQGEwJDTzEYMBYGA1UECwwPTklUIDgzMDA4NDQzMy03MRgwFgYDVQQKDA9DRVJUSUNBTUFSQSBTLkExIDAeBgNVBAMMF0FDIFNVQiA0MDk2IENFUlRJQ0FNQVJBMCAXDTI0MDkwNTE0NDYyMFoYDzIwMjUwODI1MTQ0NjIwWjCCASIxFTATBgNVBAQMDFNBTENFRE8gRElBWjEWMBQGA1UECQwNQ0wgMjIgQSA2OCA5NzEUMBIGA1UECAwLQk9HT1RBIEQuQy4xIDAeBgNVBAsMF0ZBQ1RVUkFDSU9OIEVMRUNUUk9OSUNBMRAwDgYDVQQFEwcyMjA5NTg3MRowGAYKKwYBBAGBtWMCAxMKODMwMDAyMzY2MDEXMBUGCisGAQQBgbVjAgITBzU2OTYzNTIxHjAcBgNVBAoMFUJJTUJPIERFIENPTE9NQklBIFMgQTEUMBIGA1UEBwwLQk9HT1RBIEQuQy4xDzANBgNVBCoMBkNBUkxPUzELMAkGA1UEBhMCQ08xHjAcBgNVBAMMFUJJTUJPIERFIENPTE9NQklBIFMgQTCCASAwDQYJKoZIhvcNAQEBBQADggENADCCAQgCggEBALnWON1D3pDa7bu4EZLWTNDMcLfLwho8zytwuKEX//Yg4TODrZuo9pFzFbCIShk8dl/EmWsXvaMzQk70c/njfNBSqs7go7IAKBs/+ETg0hYRnarMxjxRdAQ4lBTgJBGXL1av1e146UmWBsI9xZxJq7PC+nFy3Yozeg6dzd8oCDfPGgzA8zZ9vacxWyVS9DYMWjuIGsJt7OvZjXDaYN9oCufqCgbkk/ZqlF1ysOWh0RPpptTaNxFpRqrty9qLQMin9xTJtZFWpHHwVIkW8CbJZisNX5UONowKhzCtxpajFiM0COSECKjAoxY0uj/GJBJ2B/zfeicc6uYWF0rFIjfceX0CAQOjggPXMIID0zA6BggrBgEFBQcBAQQuMCwwKgYIKwYBBQUHMAGGHmh0dHA6Ly9vY3NwNDA5Ni5jZXJ0aWNhbWFyYS5jbzAqBgNVHREEIzAhgR9WTEFESU1JUi5CQVJSRVJBQEdSVVBPQklNQk8uQ09NMIIBCwYDVR0gBIIBAjCB/zCBmQYLKwYBBAGBtWMyAQIwgYkwKwYIKwYBBQUHAgEWH2h0dHA6Ly93d3cuY2VydGljYW1hcmEuY29tL2RwYy8wWgYIKwYBBQUHAgIwThpMTGltaXRhY2lvbmVzIGRlIGdhcmFudO1hcyBkZSBlc3RlIGNlcnRpZmljYWRvIHNlIHB1ZWRlbiBlbmNvbnRyYXIgZW4gbGEgRFBDLjBhBgsrBgEEAYG1YwoKATBSMFAGCCsGAQUFBwICMEQaQkRpc3Bvc2l0aXZvIGRlIGhhcmR3YXJlIChUb2tlbikgQ/NkaWdvIGRlIGFjcmVkaXRhY2nzbjogMTYtRUNELTAwMjAMBgNVHRMBAf8EAjAAMA4GA1UdDwEB/wQEAwID+DAnBgNVHSUEIDAeBggrBgEFBQcDAgYIKwYBBQUHAwQGCCsGAQUFBwMBMB0GA1UdDgQWBBTXXbQh8qlG+GvSmibRI2eeQkUjujAfBgNVHSMEGDAWgBRmGaP1mzCwDE5NGZlgQgnSWjFKhzCCAdEGA1UdHwSCAcgwggHEMIH1oIHyoIHvhnRodHRwOi8vd3d3LmNlcnRpY2FtYXJhLmNvbS9yZXBvc2l0b3Jpb3Jldm9jYWNpb25lcy9hY19zdWJvcmRpbmFkYV9jZXJ0aWNhbWFyYV9jb25fZXh0ZW5zaW9uX2NyaXRpY2FfNDA5Ni5jcmw/Y3JsPWNybIZ3aHR0cDovL21pcnJvci5jZXJ0aWNhbWFyYS5jb20vcmVwb3NpdG9yaW9yZXZvY2FjaW9uZXMvYWNfc3Vib3JkaW5hZGFfY2VydGljYW1hcmFfY29uX2V4dGVuc2lvbl9jcml0aWNhXzQwOTYuY3JsP2NybD1jcmwwgcmggcaggcOGXmh0dHA6Ly93d3cuY2VydGljYW1hcmEuY29tL3JlcG9zaXRvcmlvcmV2b2NhY2lvbmVzL2FjX3N1Ym9yZGluYWRhX2NlcnRpY2FtYXJhXzQwOTYuY3JsP2NybD1jcmyGYWh0dHA6Ly9taXJyb3IuY2VydGljYW1hcmEuY29tL3JlcG9zaXRvcmlvcmV2b2NhY2lvbmVzL2FjX3N1Ym9yZGluYWRhX2NlcnRpY2FtYXJhXzQwOTYuY3JsP2NybD1jcmwwDQYJKoZIhvcNAQELBQADggIBAA1awoZgNgCTpm+A78eSYnKXuYObbOQWmvvzF/cCswitr/IFRr54kr22N6TzgruoCWXtx8m52aPqGwj+g1lk+hIY41wzXHnWGKcmFZrjRg3UNJIy1ZUJ+w0Yde9kqrixMYo65WgeZF9c/k0xmn6h6Tyh0sPggYvsw4Zar2F8Ec/Va/ZqayDU26uhlR8ZTG3blcJgMvrcu68kzFHJ6fPJ+RWrJEh4iz7r45bkS2haFMRCbNxdCfSEVAbzze6GI9ekEnElAksTTTm+SLTJ9JWPmTfsHJFxS7cePqwWtgVvsiWO3BTSERnkdXm+3nXTqHR6IqdrkJ9LA4dexo2wzGtB7XOdyZZKWJxbNixXzWqjhM0Jwvpm/7xDNPAg89eI4drCOKaB+xhkuNt47yLCnH8+8JZOWPkCP4BAXmXL+KCQrH8WX9tTCmKbCajaAym2KwZotVNidKl6L/N959RopOCP/Ss34QrfhJLW2qPIEJXVeQJAsyYie1OrI5nf8HZSkSgXlaXkPssCa8BQ/7F2BZnzAflMio1WAwM7NK9Sp9B3T61tV2JBHDqBksPut2kw+wVWCmBoJeyx+gKVlB0pkfpIMrASRWnqK8IRJSwMgHmmu7kfqaywS/qoOSvnPNQDrC3dxwTWVYv7ibBYlbsLQlJp/dcMiG+e4zpTf6mBGISf56l+</ds:X509Certificate></ds:X509Data></ds:KeyInfo><ds:Object><xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" xmlns:xades141="http://uri.etsi.org/01903/v1.4.1#" Target="#Signature-e3529ff2-1d65-4561-a6d5-c7ba30866461"><xades:SignedProperties Id="SignedProperties-Signature-e3529ff2-1d65-4561-a6d5-c7ba30866461"><xades:SignedSignatureProperties><xades:SigningTime>2025-08-15T01:07:27.890Z</xades:SigningTime><xades:SigningCertificate><xades:Cert><xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>AAyA/bMzCBUPZFibu+cheZL4Jad2LVQaMA+ePBGhjW8=</ds:DigestValue></xades:CertDigest><xades:IssuerSerial><ds:X509IssuerName>CN=AC SUB 4096 CERTICAMARA, O=CERTICAMARA S.A, OU=NIT 830084433-7, C=CO, ST=DISTRITO CAPITAL, L=BOGOTA, STREET=www.certicamara.com</ds:X509IssuerName><ds:X509SerialNumber>104990571810330332399612597221073914500</ds:X509SerialNumber></xades:IssuerSerial></xades:Cert></xades:SigningCertificate><xades:SignaturePolicyIdentifier><xades:SignaturePolicyId><xades:SigPolicyId><xades:Identifier>https://facturaelectronica.dian.gov.co/politicadefirma/v2/politicadefirmav2.pdf</xades:Identifier></xades:SigPolicyId><xades:SigPolicyHash><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>dMoMvtcG5aIzgYo0tIsSQeVJBDnUnfSOfBpxXrmor0Y=</ds:DigestValue></xades:SigPolicyHash></xades:SignaturePolicyId></xades:SignaturePolicyIdentifier><xades:SignerRole><xades:ClaimedRoles><xades:ClaimedRole>supplier</xades:ClaimedRole></xades:ClaimedRoles></xades:SignerRole></xades:SignedSignatureProperties><xades:SignedDataObjectProperties><xades:DataObjectFormat ObjectReference="Reference-e3529ff2-1d65-4561-a6d5-c7ba30866461"><xades:MimeType>text/xml</xades:MimeType><xades:Encoding>UTF-8</xades:Encoding></xades:DataObjectFormat></xades:SignedDataObjectProperties></xades:SignedProperties></xades:QualifyingProperties></ds:Object></ds:Signature></ext:ExtensionContent></ext:UBLExtension></ext:UBLExtensions>
+   <cbc:UBLVersionID>UBL 2.1</cbc:UBLVersionID>
+   <cbc:CustomizationID>10</cbc:CustomizationID>
+   <cbc:ProfileID>DIAN 2.1: Factura Electrónica de Venta</cbc:ProfileID>
+   <cbc:ProfileExecutionID>1</cbc:ProfileExecutionID>
+   <cbc:ID>EE411650282</cbc:ID>
+   <cbc:UUID schemeID="1" schemeName="CUFE-SHA384">57ae76a478a2d848f28374f872959507b2887a9e53aee5d0a4aad0eb60b2da6f4e63037bb0649562810d3aac111c3dc7</cbc:UUID>
+   <cbc:IssueDate>2025-08-15</cbc:IssueDate>
+   <cbc:IssueTime>00:00:00-05:00</cbc:IssueTime>
+   <cbc:InvoiceTypeCode>01</cbc:InvoiceTypeCode>
+   <cbc:DocumentCurrencyCode listID="ISO 4217 Alpha" listAgencyID="6" listAgencyName="United Nations Economic Commission for Europe">COP</cbc:DocumentCurrencyCode>
+   <cbc:LineCountNumeric>59</cbc:LineCountNumeric>
+   <cac:OrderReference>
+      <cbc:ID>1179335</cbc:ID>
+   </cac:OrderReference>
+   <cac:AccountingSupplierParty>
+      <cbc:AdditionalAccountID>1</cbc:AdditionalAccountID>
+      <cac:Party>
+         <cbc:IndustryClassificationCode>1011</cbc:IndustryClassificationCode>
+         <cac:PartyName>
+            <cbc:Name>BIMBO DE COLOMBIA S.A.</cbc:Name>
+         </cac:PartyName>
+         <cac:PhysicalLocation>
+            <cac:Address>
+               <cbc:ID>05001</cbc:ID>
+               <cbc:CityName>Medellín</cbc:CityName>
+               <cbc:PostalZone>000000</cbc:PostalZone>
+               <cbc:CountrySubentity>Antioquia</cbc:CountrySubentity>
+               <cbc:CountrySubentityCode>05</cbc:CountrySubentityCode>
+               <cac:AddressLine>
+                  <cbc:Line>AVENIDA 10,PARQUE EMPRESARIAL NORTIKO,COPACABANA</cbc:Line>
+               </cac:AddressLine>
+               <cac:Country>
+                  <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+                  <cbc:Name languageID="es">Colombia</cbc:Name>
+               </cac:Country>
+            </cac:Address>
+         </cac:PhysicalLocation>
+         <cac:PartyTaxScheme>
+            <cbc:RegistrationName>BIMBO DE COLOMBIA S.A.</cbc:RegistrationName>
+            <cbc:CompanyID schemeID="0" schemeName="31" schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">830002366</cbc:CompanyID>
+            <cbc:TaxLevelCode listName="48">O-13;O-15</cbc:TaxLevelCode>
+            <cac:RegistrationAddress>
+               <cbc:ID>25799</cbc:ID>
+               <cbc:CityName>Tenjo</cbc:CityName>
+               <cbc:PostalZone>000000</cbc:PostalZone>
+               <cbc:CountrySubentity>Cundinamarca</cbc:CountrySubentity>
+               <cbc:CountrySubentityCode>25</cbc:CountrySubentityCode>
+               <cac:AddressLine>
+                  <cbc:Line>KM 12 Autopista Medellin Vereda La Punta Predio El Tejar Tenjo Cundinamarca,,TENJO</cbc:Line>
+               </cac:AddressLine>
+               <cac:Country>
+                  <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+                  <cbc:Name languageID="es">Colombia</cbc:Name>
+               </cac:Country>
+            </cac:RegistrationAddress>
+            <cac:TaxScheme>
+               <cbc:ID>01</cbc:ID>
+               <cbc:Name>IVA</cbc:Name>
+            </cac:TaxScheme>
+         </cac:PartyTaxScheme>
+         <cac:PartyLegalEntity>
+            <cbc:RegistrationName>BIMBO DE COLOMBIA S.A.</cbc:RegistrationName>
+            <cbc:CompanyID schemeID="0" schemeName="31" schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">830002366</cbc:CompanyID>
+            <cac:CorporateRegistrationScheme>
+               <cbc:ID>EE41</cbc:ID>
+               <cbc:Name>000000</cbc:Name>
+            </cac:CorporateRegistrationScheme>
+         </cac:PartyLegalEntity>
+         <cac:Contact>
+            <cbc:ElectronicMail>col_intercambio@einvoicing.signature-cloud.com</cbc:ElectronicMail>
+         </cac:Contact>
+      </cac:Party>
+   </cac:AccountingSupplierParty>
+   <cac:AccountingCustomerParty>
+      <cbc:AdditionalAccountID>1</cbc:AdditionalAccountID>
+      <cac:Party>
+         <cac:PartyName>
+            <cbc:Name>LA 80 RIONEGRO</cbc:Name>
+         </cac:PartyName>
+         <cac:PhysicalLocation>
+            <cac:Address>
+               <cbc:ID>05615</cbc:ID>
+               <cbc:CityName>Rionegro</cbc:CityName>
+               <cbc:PostalZone>000000</cbc:PostalZone>
+               <cbc:CountrySubentity>Antioquia</cbc:CountrySubentity>
+               <cbc:CountrySubentityCode>05</cbc:CountrySubentityCode>
+               <cac:AddressLine>
+                  <cbc:Line>CRA 39 A 56 78,TRANSITO,05</cbc:Line>
+               </cac:AddressLine>
+               <cac:Country>
+                  <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+                  <cbc:Name languageID="es">Colombia</cbc:Name>
+               </cac:Country>
+            </cac:Address>
+         </cac:PhysicalLocation>
+         <cac:PartyTaxScheme>
+            <cbc:RegistrationName>INVERSIONES JOMARA S A S</cbc:RegistrationName>
+            <cbc:CompanyID schemeID="3" schemeName="31" schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">900477710</cbc:CompanyID>
+            <cbc:TaxLevelCode listName="48">R-99-PN</cbc:TaxLevelCode>
+            <cac:RegistrationAddress>
+               <cbc:ID>05615</cbc:ID>
+               <cbc:CityName>Rionegro</cbc:CityName>
+               <cbc:PostalZone>000000</cbc:PostalZone>
+               <cbc:CountrySubentity>Antioquia</cbc:CountrySubentity>
+               <cbc:CountrySubentityCode>05</cbc:CountrySubentityCode>
+               <cac:AddressLine>
+                  <cbc:Line>CRA 39 A 56 78,TRANSITO,RIONEGRO</cbc:Line>
+               </cac:AddressLine>
+               <cac:Country>
+                  <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+                  <cbc:Name languageID="es">Colombia</cbc:Name>
+               </cac:Country>
+            </cac:RegistrationAddress>
+            <cac:TaxScheme>
+               <cbc:ID>01</cbc:ID>
+               <cbc:Name>IVA</cbc:Name>
+            </cac:TaxScheme>
+         </cac:PartyTaxScheme>
+         <cac:PartyLegalEntity>
+            <cbc:RegistrationName>INVERSIONES JOMARA S A S</cbc:RegistrationName>
+            <cbc:CompanyID schemeID="3" schemeName="31" schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">900477710</cbc:CompanyID>
+         </cac:PartyLegalEntity>
+         <cac:Contact>
+            <cbc:Telephone>3245290186</cbc:Telephone>
+            <cbc:ElectronicMail>facelecsuperla80@gmail.com</cbc:ElectronicMail>
+         </cac:Contact>
+      </cac:Party>
+   </cac:AccountingCustomerParty>
+   <cac:Delivery>
+      <cac:DeliveryAddress>
+         <cbc:ID>05615</cbc:ID>
+         <cbc:CityName>Rionegro</cbc:CityName>
+         <cbc:PostalZone>000000</cbc:PostalZone>
+         <cbc:CountrySubentity>Antioquia</cbc:CountrySubentity>
+         <cbc:CountrySubentityCode>05</cbc:CountrySubentityCode>
+         <cac:AddressLine>
+            <cbc:Line>CRA 39 A 56 78,TRANSITO,05</cbc:Line>
+         </cac:AddressLine>
+         <cac:Country>
+            <cbc:IdentificationCode>CO</cbc:IdentificationCode>
+            <cbc:Name languageID="es">Colombia</cbc:Name>
+         </cac:Country>
+      </cac:DeliveryAddress>
+   </cac:Delivery>
+   <cac:PaymentMeans>
+      <cbc:ID>2</cbc:ID>
+      <cbc:PaymentMeansCode>42</cbc:PaymentMeansCode>
+      <cbc:PaymentDueDate>2025-08-23</cbc:PaymentDueDate>
+   </cac:PaymentMeans>
+   <cac:TaxTotal>
+      <cbc:TaxAmount currencyID="COP">128334.17</cbc:TaxAmount>
+      <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+      <cac:TaxSubtotal>
+         <cbc:TaxableAmount currencyID="COP">675443.00</cbc:TaxableAmount>
+         <cbc:TaxAmount currencyID="COP">128334.17</cbc:TaxAmount>
+         <cac:TaxCategory>
+            <cbc:Percent>19.00</cbc:Percent>
+            <cac:TaxScheme>
+               <cbc:ID>01</cbc:ID>
+               <cbc:Name>IVA</cbc:Name>
+            </cac:TaxScheme>
+         </cac:TaxCategory>
+      </cac:TaxSubtotal>
+   </cac:TaxTotal>
+   <cac:TaxTotal>
+      <cbc:TaxAmount currencyID="COP">86726.40</cbc:TaxAmount>
+      <cac:TaxSubtotal>
+         <cbc:TaxableAmount currencyID="COP">433632.00</cbc:TaxableAmount>
+         <cbc:TaxAmount currencyID="COP">86726.40</cbc:TaxAmount>
+         <cac:TaxCategory>
+            <cbc:Percent>20.00</cbc:Percent>
+            <cac:TaxScheme>
+               <cbc:ID>35</cbc:ID>
+               <cbc:Name>ICUI</cbc:Name>
+            </cac:TaxScheme>
+         </cac:TaxCategory>
+      </cac:TaxSubtotal>
+   </cac:TaxTotal>
+   <cac:LegalMonetaryTotal>
+      <cbc:LineExtensionAmount currencyID="COP">2975358.00</cbc:LineExtensionAmount>
+      <cbc:TaxExclusiveAmount currencyID="COP">675443.00</cbc:TaxExclusiveAmount>
+      <cbc:TaxInclusiveAmount currencyID="COP">3190418.57</cbc:TaxInclusiveAmount>
+      <cbc:PayableAmount currencyID="COP">3190418.57</cbc:PayableAmount>
+   </cac:LegalMonetaryTotal>
+   <cac:InvoiceLine>
+      <cbc:ID>1</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">8.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">28000.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Hamburguesa 1p 210g Bolsa BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>0981</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326019295</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">3500.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">8.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>2</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">15.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">51255.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Perro 1p 205g Bolsa BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>0982</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326019301</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">3417.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">15.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>3</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">9.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">55503.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Super Perro 1p 405g Bolsa BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>0987</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326019318</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">6167.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">9.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>4</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">8.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">11512.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">2187.28</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">11512.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">2187.28</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">2302.40</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">11512.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">2302.40</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>20.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>35</cbc:ID>
+                  <cbc:Name>ICUI</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Chocoso 1p 65g FLOW BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>1225</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326070371</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">1439.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">8.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>5</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">3.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">20874.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">3966.06</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">20874.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">3966.06</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">4174.80</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">20874.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">4174.80</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>20.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>35</cbc:ID>
+                  <cbc:Name>ICUI</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Chocoso 1p 325g ME BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>1591</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326071330</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">6958.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">3.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>6</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">10.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">21570.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">4098.30</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">21570.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">4098.30</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">4314.00</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">21570.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">4314.00</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>20.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>35</cbc:ID>
+                  <cbc:Name>ICUI</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Pinguinos 1p 80g FLOW MLA</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>20266</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326053206</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">2157.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">10.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>7</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">4.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">32000.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Integral 1p 650g Bolsa BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>23618</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326073365</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">8000.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">4.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>8</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">4.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">33000.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Vital Semillas 1p 500g Bolsa BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>23900</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326073860</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">8250.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">4.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>9</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">6.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">49500.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Vital Fruticereal 1p 500g Bolsa BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>23901</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326073891</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">8250.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">6.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>10</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">10.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">95200.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">18088.00</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">95200.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">18088.00</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Tortillas Blancas 1p 450g Bolsa BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>26504</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326075505</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">9520.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">10.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>11</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">8.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">31160.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">5920.40</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">31160.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">5920.40</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">6232.00</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">31160.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">6232.00</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>20.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>35</cbc:ID>
+                  <cbc:Name>ICUI</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Casero Marmoleado 1p 220g FLOW BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>27046</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326075963</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">3895.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">8.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>12</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">4.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">33000.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Vital Granola Arandan 1p 500g BOLSA BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>27213</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326076038</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">8250.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">4.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>13</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">12.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">17988.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">3417.72</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">17988.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">3417.72</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">3597.60</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">17988.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">3597.60</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>20.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>35</cbc:ID>
+                  <cbc:Name>ICUI</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Manchitas 1p 45g Flow MLA</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>27768</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326076908</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">1499.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">12.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>14</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">12.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">81996.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Mantequilla 1p 600g BOLSA BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>28632</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326077301</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">6833.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">12.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>15</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">6.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">51240.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">9735.60</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">51240.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">9735.60</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Tortilla FajitaBurrito 1p 425g BOLSA BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>29073</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326077844</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">8540.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">6.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>16</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">6.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">32346.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">6145.74</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">32346.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">6145.74</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Tortillas Blancas 1p 240g Bolsa BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>29074</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326077837</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">5391.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">6.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>17</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">15.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">90000.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Artesano Blanco 1p 500g Bolsa BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>29580</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326078261</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">6000.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">15.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>18</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">5.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">37085.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Artesano Integral 1p 500g Bolsa BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>3162</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326081803</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">7417.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">5.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>19</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">5.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">8690.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">1651.10</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">8690.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">1651.10</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">1738.00</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">8690.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">1738.00</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>20.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>35</cbc:ID>
+                  <cbc:Name>ICUI</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Submarino Arequipe 1p 66g FLOW MLA</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>41658</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326079114</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">1738.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">5.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>20</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">15.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">32355.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">6147.45</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">32355.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">6147.45</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">6471.00</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">32355.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">6471.00</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>20.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>35</cbc:ID>
+                  <cbc:Name>ICUI</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Brownie Arequipe 1p 75g FLOW BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>42202</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326079008</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">2157.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">15.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>21</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">15.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">103755.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Artesano Mantequi 1p 500g BOLSA BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>42246</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326079442</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">6917.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">15.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>22</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">5.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">19475.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">3700.25</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">19475.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">3700.25</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">3895.00</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">19475.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">3895.00</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>20.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>35</cbc:ID>
+                  <cbc:Name>ICUI</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Casero Vainilla 1p 220g FLOW BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>42443</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326079152</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">3895.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">5.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>23</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">8.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">52664.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Artesano Hamburgue 1p 360g Bolsa BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>4317</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326081599</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">6583.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">8.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>24</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">3.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">21933.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">4167.27</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">21933.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">4167.27</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">4386.60</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">21933.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">4386.60</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>20.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>35</cbc:ID>
+                  <cbc:Name>ICUI</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Minix Pinguino 1p 240g FLOW MLA</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>45972</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326080530</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">7311.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">3.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>25</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">3.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">20316.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">3860.04</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">20316.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">3860.04</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">4063.20</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">20316.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">4063.20</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>20.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>35</cbc:ID>
+                  <cbc:Name>ICUI</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Minix Brownie Arequipe 1p 220g FLOW BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>49584</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326079084</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">6772.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">3.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>26</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">4.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">22332.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Fit Blanco 1p 350g BOLSA BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>500107</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326082060</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">5583.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">4.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>27</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">4.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">33000.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Vital Natu Fruto Rojos 1p 460g BOLSA BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>500798</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326079701</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">8250.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">4.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>28</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">5.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">10490.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">1993.10</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">10490.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">1993.10</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">2098.00</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">10490.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">2098.00</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>20.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>35</cbc:ID>
+                  <cbc:Name>ICUI</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Dona Rellena Arequipe 1p 70g FLOW BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>501184</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326080394</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">2098.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">5.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>29</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">4.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">36704.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">6973.76</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">36704.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">6973.76</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">7340.80</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">36704.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">7340.80</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>20.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>35</cbc:ID>
+                  <cbc:Name>ICUI</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Minix Chocoso 1p 400g FLOW BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>501894</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326090874</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">9176.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">4.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>30</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">8.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">60664.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Spr Hamburgue Ajon 1p 525g BOLSA BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>504672</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326076809</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">7583.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">8.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>31</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">4.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">24000.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Hamburguesa Dorado 1p 360g BOLSA BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>504905</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326001757</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">6000.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">4.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>32</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">6.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">40998.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Minicroissant Mantequi 1p 304g BOLSA BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>505545</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326002563</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">6833.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">6.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>33</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">5.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">26665.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Super Hamburguesa 1p 350g Bolsa BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>5523</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326019288</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">5333.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">5.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>34</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">10.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">41370.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">7860.30</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">41370.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">7860.30</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">8274.00</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">41370.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">8274.00</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>20.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>35</cbc:ID>
+                  <cbc:Name>ICUI</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Tortillas Maiz 1p 210g Bolsa TR</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>7651</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326080110</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">4137.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">10.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>35</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">10.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">63330.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Artesano Mesa 1p 390g BOLSA BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>7781</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326080196</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">6333.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">10.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>36</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">20.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">42820.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">8135.80</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">42820.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">8135.80</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">8564.00</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">42820.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">8564.00</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>20.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>35</cbc:ID>
+                  <cbc:Name>ICUI</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Chusquitas 1p 110g ME MI</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>7028</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326018137</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">2141.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">20.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>37</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">10.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">43330.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Blanco 1p 420g BOLSA MI</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>0091</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326018687</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">4333.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">10.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>38</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">10.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">63330.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Int Aven Pasas Nue 1p 500g BOLSA MI</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>0046</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326017659</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">6333.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">10.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>39</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">18.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">97506.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Integral 1p 440g BOLSA MI</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>0951</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326019264</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">5417.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">18.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>40</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">2.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">9000.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Panecitos 1p 300g BOLSA MI</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>2132</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326017802</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">4500.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">2.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>41</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">10.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">50000.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Tajado Mantequilla 1p 420g BOLSA MI</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>22611</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326072399</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">5000.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">10.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>42</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">5.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">18750.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Tronquitos 1p 130g BOLSA MI</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>28230</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326019240</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">3750.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">5.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>43</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">4.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">15332.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Romanitos 1p 140g BOLSA MI</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>29884</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326078452</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">3833.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">4.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>44</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">20.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">140000.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Tostadas Media Luna Int 3p 280g BOLSA MI</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>41761</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326079367</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">7000.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">20.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>45</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">12.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">80004.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Tostadas Med Luna Mant 3p 280g BOLSA MI</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>41776</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326079350</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">6667.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">12.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>46</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">9.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">99000.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Combo Familiar 1p 695g BOLSA MI</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>42481</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326079794</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">11000.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">9.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>47</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">5.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">29585.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Nutripan 1p 580g BOLSA MI</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>48677</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326080073</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">5917.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">5.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>48</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">30.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">207510.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Mini Croissant 1p 330g BOLSA MI</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>501203</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326020970</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">6917.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">30.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>49</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">20.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">125000.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Golosia Arequipe 1p 270g ME MI</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>5161</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326018069</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">6250.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">20.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>50</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">10.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">19170.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Golosia Arequipe 1p 90g FLOW MI</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>9336</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326018045</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">1917.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">10.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>51</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">10.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">37150.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">7058.50</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">37150.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">7058.50</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">7430.00</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">37150.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">7430.00</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>20.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>35</cbc:ID>
+                  <cbc:Name>ICUI</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Lonchi1mixp141g</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>505753</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326081292</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">3715.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">10.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>52</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">3.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">27327.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">5192.13</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">27327.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">5192.13</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">5465.40</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">27327.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">5465.40</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>20.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>35</cbc:ID>
+                  <cbc:Name>ICUI</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Minix Brownie Surtido 1p 302g FLOW BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>505754</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326081339</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">9109.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">3.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>53</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">4.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">20384.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">3872.96</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">20384.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">3872.96</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">4076.80</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">20384.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">4076.80</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>20.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>35</cbc:ID>
+                  <cbc:Name>ICUI</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Submarinos Surtidos 1p 204g ME MLA</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>505752</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326081223</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">5096.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">4.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>54</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">25.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">63025.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">11974.75</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">63025.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">11974.75</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Takis Fuego 42p 50g FLOW BAR EXP</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>514840</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7500810027400</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">2521.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">25.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>55</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">2.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">10334.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Blanco 1p 535g BOLSA MI</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>506133</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326019851</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">5167.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">2.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>56</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">4.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">24668.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Perro Dorado 6p 405g BOLSA BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>963522</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326629166</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">6167.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">4.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>57</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">18.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">109494.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Blanco PRO 1p 600g BOLSA BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>506251</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326468727</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">6083.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">18.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>58</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">35.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">239155.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:Item>
+         <cbc:Description>Pan Blanco PRO 1p 730g BOLSA BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>506252</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326023261</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">6833.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">35.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   <cac:InvoiceLine>
+      <cbc:ID>59</cbc:ID>
+      <cbc:InvoicedQuantity unitCode="94">6.000000</cbc:InvoicedQuantity>
+      <cbc:LineExtensionAmount currencyID="COP">11514.00</cbc:LineExtensionAmount>
+      <cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">2187.66</cbc:TaxAmount>
+         <cbc:RoundingAmount currencyID="COP">0.00</cbc:RoundingAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">11514.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">2187.66</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>19.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>01</cbc:ID>
+                  <cbc:Name>IVA</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="COP">2302.80</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="COP">11514.00</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="COP">2302.80</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:Percent>20.00</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>35</cbc:ID>
+                  <cbc:Name>ICUI</cbc:Name>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>Brownie Milo 1p 50g Flow BIM</cbc:Description>
+         <cac:SellersItemIdentification>
+            <cbc:ID>963602</cbc:ID>
+         </cac:SellersItemIdentification>
+         <cac:StandardItemIdentification>
+            <cbc:ID schemeID="999" schemeName="EAN13">7705326839176</cbc:ID>
+         </cac:StandardItemIdentification>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="COP">1919.00</cbc:PriceAmount>
+         <cbc:BaseQuantity unitCode="94">6.000000</cbc:BaseQuantity>
+      </cac:Price>
+   </cac:InvoiceLine>
+   
+</Invoice>
+]]></cbc:Description></cac:ExternalReference></cac:Attachment><cac:ParentDocumentLineReference><cbc:LineID>1</cbc:LineID><cac:DocumentReference><cbc:ID>EE411650282</cbc:ID><cbc:UUID schemeName="CUFE-SHA384">57ae76a478a2d848f28374f872959507b2887a9e53aee5d0a4aad0eb60b2da6f4e63037bb0649562810d3aac111c3dc7</cbc:UUID><cbc:IssueDate>2025-08-15</cbc:IssueDate><cbc:DocumentType>ApplicationResponse</cbc:DocumentType><cac:Attachment><cac:ExternalReference><cbc:MimeCode>text/xml</cbc:MimeCode><cbc:EncodingCode>UTF-8</cbc:EncodingCode><cbc:Description><![CDATA[<?xml version="1.0" encoding="utf-8" standalone="no"?><ApplicationResponse xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:sts="dian:gov:co:facturaelectronica:Structures-2-1" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns="urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2">
+  <ext:UBLExtensions>
+    <ext:UBLExtension>
+      <ext:ExtensionContent>
+        <sts:DianExtensions>
+          <sts:InvoiceSource>
+            <cbc:IdentificationCode listAgencyID="6" listAgencyName="United Nations Economic Commission for Europe" listSchemeURI="urn:oasis:names:specification:ubl:codelist:gc:CountryIdentificationCode-2.1">CO</cbc:IdentificationCode>
+          </sts:InvoiceSource>
+          <sts:SoftwareProvider>
+            <sts:ProviderID schemeID="4" schemeName="31" schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">800197268</sts:ProviderID>
+            <sts:SoftwareID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">...</sts:SoftwareID>
+          </sts:SoftwareProvider>
+          <sts:SoftwareSecurityCode schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">...</sts:SoftwareSecurityCode>
+          <sts:AuthorizationProvider>
+            <sts:AuthorizationProviderID schemeID="4" schemeName="31" schemeAgencyID="195" schemeAgencyName="CO, DIAN (Dirección de Impuestos y Aduanas Nacionales)">800197268</sts:AuthorizationProviderID>
+          </sts:AuthorizationProvider>
+        </sts:DianExtensions>
+      </ext:ExtensionContent>
+    </ext:UBLExtension>
+    <ext:UBLExtension>
+      <ext:ExtensionContent><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="Signature-5cc02e39-729a-463b-9322-67b73346e8b5"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><ds:Reference Id="Reference-4f1bc64f-b9d2-4eb7-b433-7474b8df1c35" URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>2fKeskQ9nPf90Llp6ap/Y5YvhS+OOqHZEgSWyCCMETQ=</ds:DigestValue></ds:Reference><ds:Reference Id="ReferenceKeyInfo" URI="#Signature-5cc02e39-729a-463b-9322-67b73346e8b5-KeyInfo"><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>ce8LjW14jdvxQMIWfTLDf/7IKW8wPXeqzULcQsM+38s=</ds:DigestValue></ds:Reference><ds:Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#xmldsig-Signature-5cc02e39-729a-463b-9322-67b73346e8b5-signedprops"><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>yL/gxRnVGXXayWpulKgEnzNbHjqnC6ayOln8Jb2n2IM=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue Id="SignatureValue-5cc02e39-729a-463b-9322-67b73346e8b5">fElv9xTS63Fb9kR7dGQ+YnIoVOw3Pua8qOxEyF27a0Ljjtdj8sZ+6vp2ZYdhHRqEpFk1nHoyREMpabTUSTKdXmc+HvEtCrAfkylUQJP0NQ2sLv/IGzYjjE8Ij1UMnhWlq10ZyHOShX7QdFmAabVyP+3hKubbDb0Y+2fR91f1S0kLWPQL5lVG/8rtnXG8mTGQF7njAS83ajGApRXnOCj3wFexLb6HkpNp3+TuJW9Kv134ipOeZ9H7tcNUwgrLzDsyJNGd3QfrX5x+m4LqTZv42XHiWVczdX96XnL8Dzb6TxHktHIypjLj6oZugra9p0wUepHPJTPZYhK5vhFZEKevDQ==</ds:SignatureValue><ds:KeyInfo Id="Signature-5cc02e39-729a-463b-9322-67b73346e8b5-KeyInfo"><ds:X509Data><ds:X509Certificate>MIIHVjCCBT6gAwIBAgIKKfJjIKoEFNsBSDANBgkqhkiG9w0BAQsFADCBhjEeMBwGCSqGSIb3DQEJARYPaW5mb0Bnc2UuY29tLmNvMSUwIwYDVQQDExxBdXRvcmlkYWQgU3Vib3JkaW5hZGEgMDEgR1NFMQwwCgYDVQQLEwNQS0kxDDAKBgNVBAoTA0dTRTEUMBIGA1UEBxMLQm9nb3RhIEQuQy4xCzAJBgNVBAYTAkNPMB4XDTIzMTIyMDE0MDUxOVoXDTI1MTIxOTE0MDUxOFowggEpMRQwEgYDVQQJDAtDUiA3IDYgQyA1NDEjMCEGA1UEDQwaRkVQSiBHU0UgQ0wgNzcgNyA0NCBPRiA3MDExFDASBgNVBAgMC0JPR09UQSBELkMuMRQwEgYDVQQHDAtCT0dPVEEgRC5DLjELMAkGA1UEBhMCQ08xOzA5BgNVBAMMMlUuQS5FLiBESVJFQ0NJT04gREUgSU1QVUVTVE9TIFkgQURVQU5BUyBOQUNJT05BTEVTMRkwFwYKKwYBBAGkZgEDAgwJODAwMTk3MjY4MQwwCgYDVQQpDANOSVQxEjAQBgNVBAUTCTgwMDE5NzI2ODE5MDcGA1UECwwwRElSRUNDSU9OIERFIEdFU1RJT04gQ09SUE9SQVRJVkEgLSBOSVZFTCBDRU5UUkFMMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtWs5fz5itJqoQso9/1bjGCG5QmXB+fap4mQmdIE5NDUV+swjUcz7Na0gcTIAOxejr9XPybN1dbyZlI871J2sB67VUSJ9Mt+kF0n6w25sr1gGqEp36RCHCprqmpJPwWitLLrflpp+xNnu2BPOpO365RjjaPqnX7uu3uOEFxzJZqyLu7bGuB9Ob/pQww1KlHbQ8ThHMzRQ/aHIR1DU0NRo9D3Z7u/IyTvbpBrRXy6UWqrlHyS/uDzct2RZvUH6hwt1TlZWRJp6oa0IwcewJ1cRRvuzBwXO/FtQTvkv10x1sjhi906JMqUZivilIpo72H/7i4uhjF0Jwo8iwLSTYH1/BwIDAQABo4ICHjCCAhowDAYDVR0TAQH/BAIwADAfBgNVHSMEGDAWgBRBvNQ5eLiDoxcaCJqpuAQCCS3YmTBoBggrBgEFBQcBAQRcMFowMgYIKwYBBQUHMAKGJmh0dHBzOi8vY2VydHMyLmdzZS5jb20uY28vQ0FfU1VCMDEuY3J0MCQGCCsGAQUFBzABhhhodHRwczovL29jc3AyLmdzZS5jb20uY28wagYDVR0RBGMwYYEUc2FsZGFuYXJAZGlhbi5nb3YuY2+GSWh0dHBzOi8vZ3NlLmNvbS5jby9kb2N1bWVudG9zL2NlcnRpZmljYWNpb25lcy9hY3JlZGl0YWNpb24vMTYtRUNELTAwMS5wZGYwgYMGA1UdIAR8MHoweAYLKwYBBAGB8yABBA8waTBnBggrBgEFBQcCARZbaHR0cHM6Ly9nc2UuY29tLmNvL2RvY3VtZW50b3MvY2FsaWRhZC9EUEMvRGVjbGFyYWNpb25fZGVfUHJhY3RpY2FzX2RlX0NlcnRpZmljYWNpb25fVjE2LnBkZjAnBgNVHSUEIDAeBggrBgEFBQcDAgYIKwYBBQUHAwQGCCsGAQUFBwMBMDUGA1UdHwQuMCwwKqAooCaGJGh0dHBzOi8vY3JsMi5nc2UuY29tLmNvL0NBX1NVQjAxLmNybDAdBgNVHQ4EFgQUE0fI66zAjKen9MQuJMqak2OrD3kwDgYDVR0PAQH/BAQDAgTwMA0GCSqGSIb3DQEBCwUAA4ICAQCIXSoIYaXj4nTBtuM7zzlrAd4wkonF2hIhtbzjnMzye99fkLkp5VR9U/ZKl0KFdndqtUfRM/c8BHsLmdHudrHoUmBCacsa+rwDSKD6w1yhFgGJc8gvQEFRp5JTdFrJop4yst9G5oZ9QdQ9+JcqY567GUY/UkWgeWoMuJyLz1aZ1dMlPzBhNueHOmr6PYmPsZQa5QBUBSk5mzZE6+qdcFZgY989dOZeoIzVbv2hvuq2afxm/BL/hibixwV3RJfIm7TbrsrN+xigq+UCwAdXCxg5CwxyZeYmfLzeoNIECR26R9GUVWYjhvrWmNCjLZ0ZA+21dShn4jJVtDreJKWBL733D30P51hdhwv+mau+7P8zKw2PcFDApIKDakyqqMr0KP/AJ/8biD3LP8GQVB3gGfZbSWtkOfwSO6+wN2Vh/PFfWIou52FPPu89w0KRB8PBoO6wMgvlTfFWoMYswmCtfxPQTapxdTM5e0yN0a6HzQzLC6k8pG1jOyQYcjhtw7UlV5Pkm9+0dUQT2Rrsxfz5cF1jAT9wBq5ZnLXYy9eLXKxTWxcMjrlOjWRE2odBbMi7h3di1tVmEjABGZ6nbt3F3xPksxXU+DqDufU5vzZbzjMOIhDSoml3bGfjCtLPIGa5F+2SKGNkAbWFkVTlyDKaEH4bp94r/gYQS6EH14Xo7txkXA==</ds:X509Certificate></ds:X509Data><ds:KeyValue><ds:RSAKeyValue><ds:Modulus>tWs5fz5itJqoQso9/1bjGCG5QmXB+fap4mQmdIE5NDUV+swjUcz7Na0gcTIAOxejr9XPybN1dbyZlI871J2sB67VUSJ9Mt+kF0n6w25sr1gGqEp36RCHCprqmpJPwWitLLrflpp+xNnu2BPOpO365RjjaPqnX7uu3uOEFxzJZqyLu7bGuB9Ob/pQww1KlHbQ8ThHMzRQ/aHIR1DU0NRo9D3Z7u/IyTvbpBrRXy6UWqrlHyS/uDzct2RZvUH6hwt1TlZWRJp6oa0IwcewJ1cRRvuzBwXO/FtQTvkv10x1sjhi906JMqUZivilIpo72H/7i4uhjF0Jwo8iwLSTYH1/Bw==</ds:Modulus><ds:Exponent>AQAB</ds:Exponent></ds:RSAKeyValue></ds:KeyValue></ds:KeyInfo><ds:Object Id="XadesObjectId-1b2419e4-53d0-4182-896d-f8bed221db7f"><xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" Id="QualifyingProperties-ee0e5390-3e5f-4819-9040-182047c917d4" Target="#Signature-5cc02e39-729a-463b-9322-67b73346e8b5"><xades:SignedProperties Id="xmldsig-Signature-5cc02e39-729a-463b-9322-67b73346e8b5-signedprops"><xades:SignedSignatureProperties><xades:SigningTime>2025-08-15T01:07:29+00:00</xades:SigningTime><xades:SigningCertificate><xades:Cert><xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>BJbBGalZ6U+wEJrRUD69hteZS82kztgHYNSMJsw4P5I=</ds:DigestValue></xades:CertDigest><xades:IssuerSerial><ds:X509IssuerName>C=CO, L=Bogota D.C., O=GSE, OU=PKI, CN=Autoridad Subordinada 01 GSE, E=info@gse.com.co</ds:X509IssuerName><ds:X509SerialNumber>198088280759436681347400</ds:X509SerialNumber></xades:IssuerSerial></xades:Cert></xades:SigningCertificate><xades:SignaturePolicyIdentifier><xades:SignaturePolicyId><xades:SigPolicyId><xades:Identifier>https://facturaelectronica.dian.gov.co/politicadefirma/v2/politicadefirmav2.pdf</xades:Identifier><xades:Description /></xades:SigPolicyId><xades:SigPolicyHash><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><ds:DigestValue>dMoMvtcG5aIzgYo0tIsSQeVJBDnUnfSOfBpxXrmor0Y=</ds:DigestValue></xades:SigPolicyHash></xades:SignaturePolicyId></xades:SignaturePolicyIdentifier><xades:SignerRole><xades:ClaimedRoles><xades:ClaimedRole>supplier</xades:ClaimedRole></xades:ClaimedRoles></xades:SignerRole></xades:SignedSignatureProperties><xades:SignedDataObjectProperties><xades:DataObjectFormat ObjectReference="#Reference-4f1bc64f-b9d2-4eb7-b433-7474b8df1c35"><xades:MimeType>text/xml</xades:MimeType><xades:Encoding>UTF-8</xades:Encoding></xades:DataObjectFormat></xades:SignedDataObjectProperties></xades:SignedProperties></xades:QualifyingProperties></ds:Object></ds:Signature></ext:ExtensionContent>
+    </ext:UBLExtension>
+  </ext:UBLExtensions>
+  <cbc:UBLVersionID>UBL 2.1</cbc:UBLVersionID>
+  <cbc:CustomizationID>1</cbc:CustomizationID>
+  <cbc:ProfileID>DIAN 2.1</cbc:ProfileID>
+  <cbc:ProfileExecutionID>1</cbc:ProfileExecutionID>
+  <cbc:ID>27440500</cbc:ID>
+  <cbc:UUID schemeName="CUDE-SHA384">a626c3a75eecebeb42ab640a31bad60ab875fbca8c96431a92ddb61b43b652d990cd5b8d3a47bd3fee0b3e8bc41b96e9</cbc:UUID>
+  <cbc:IssueDate>2025-08-15</cbc:IssueDate>
+  <cbc:IssueTime>01:07:29-05:00</cbc:IssueTime>
+  <cac:SenderParty>
+    <cac:PartyTaxScheme>
+      <cbc:RegistrationName>Unidad Especial Dirección de Impuestos y Aduanas Nacionales</cbc:RegistrationName>
+      <cbc:CompanyID schemeID="4" schemeName="31">800197268</cbc:CompanyID>
+      <cac:TaxScheme>
+        <cbc:ID>01</cbc:ID>
+        <cbc:Name>IVA</cbc:Name>
+      </cac:TaxScheme>
+    </cac:PartyTaxScheme>
+  </cac:SenderParty>
+  <cac:ReceiverParty>
+    <cac:PartyTaxScheme>
+      <cbc:RegistrationName>BIMBO DE COLOMBIA S.A.</cbc:RegistrationName>
+      <cbc:CompanyID schemeID="0" schemeName="31">830002366</cbc:CompanyID>
+      <cac:TaxScheme>
+        <cbc:ID>01</cbc:ID>
+        <cbc:Name>IVA</cbc:Name>
+      </cac:TaxScheme>
+    </cac:PartyTaxScheme>
+  </cac:ReceiverParty>
+  <cac:DocumentResponse>
+    <cac:Response>
+      <cbc:ResponseCode>02</cbc:ResponseCode>
+      <cbc:Description>Documento validado por la DIAN</cbc:Description>
+    </cac:Response>
+    <cac:DocumentReference>
+      <cbc:ID>EE411650282</cbc:ID>
+      <cbc:UUID schemeName="CUFE-SHA384">57ae76a478a2d848f28374f872959507b2887a9e53aee5d0a4aad0eb60b2da6f4e63037bb0649562810d3aac111c3dc7</cbc:UUID>
+    </cac:DocumentReference>
+    <cac:LineResponse>
+      <cac:LineReference>
+        <cbc:LineID>1</cbc:LineID>
+      </cac:LineReference>
+      <cac:Response>
+        <cbc:ResponseCode>0000</cbc:ResponseCode>
+        <cbc:Description>0</cbc:Description>
+      </cac:Response>
+    </cac:LineResponse>
+    <cac:LineResponse>
+      <cac:LineReference>
+        <cbc:LineID>2</cbc:LineID>
+      </cac:LineReference>
+      <cac:Response>
+        <cbc:ResponseCode>FAM06</cbc:ResponseCode>
+        <cbc:Description>El nombre no corresponde a un valor válido de la lista</cbc:Description>
+      </cac:Response>
+    </cac:LineResponse>
+    <cac:LineResponse>
+      <cac:LineReference>
+        <cbc:LineID>3</cbc:LineID>
+      </cac:LineReference>
+      <cac:Response>
+        <cbc:ResponseCode>RUT01</cbc:ResponseCode>
+        <cbc:Description>La validación del estado del RUT próximamente estará disponible.</cbc:Description>
+      </cac:Response>
+    </cac:LineResponse>
+    <cac:LineResponse>
+      <cac:LineReference>
+        <cbc:LineID>4</cbc:LineID>
+      </cac:LineReference>
+      <cac:Response>
+        <cbc:ResponseCode>RUT01</cbc:ResponseCode>
+        <cbc:Description>La validación del estado del RUT próximamente estará disponible.</cbc:Description>
+      </cac:Response>
+    </cac:LineResponse>
+  </cac:DocumentResponse>
+</ApplicationResponse>]]></cbc:Description></cac:ExternalReference></cac:Attachment><cac:ResultOfVerification><cbc:ValidatorID>Unidad Especial Dirección de Impuestos y Aduanas Nacionales</cbc:ValidatorID><cbc:ValidationResultCode>02</cbc:ValidationResultCode><cbc:ValidationDate>2025-08-15</cbc:ValidationDate><cbc:ValidationTime>01:07:29-05:00</cbc:ValidationTime></cac:ResultOfVerification></cac:DocumentReference></cac:ParentDocumentLineReference></AttachedDocument>
